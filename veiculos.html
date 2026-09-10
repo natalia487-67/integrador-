@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veículos - Dominus Auto</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <img src="assets/logo.jpg" alt="Dominus Auto">
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="veiculos.html">Veículos</a>
+            <a href="suporte.html">Suporte</a>
+            <a href="sobre.html">Sobre Nós</a>
+            <a href="login.html">Fazer Login</a>
+        </nav>
+    </header>
+
+    <main class="page">
+        <h1 class="page-title">Nossa Frota Exclusiva</h1>
+
+        <div class="filter-bar">
+            <select class="field">
+                <option value="">Todas as Categorias</option>
+                <option value="suv">SUVs Premium</option>
+                <option value="esportivo">Superesportivos</option>
+                <option value="sedan">Sedans de Luxo</option>
+            </select>
+            <select class="field">
+                <option value="">Ordenar por</option>
+                <option value="menor-preco">Menor Preço</option>
+                <option value="maior-preco">Maior Preço</option>
+            </select>
+            <button class="button">Filtrar</button>
+        </div>
+
+        <section class="cards">
+            <div class="card">
+                <img src="assets/car1.jpg" alt="Mercedes-Benz C-Class">
+                <h3>Mercedes-Benz C-Class</h3>
+                <p class="category">Sedan Premium</p>
+                <p class="price">R$ 1.200 / dia</p>
+                <a href="ficha-tecnica.html" class="button">Ver Detalhes</a>
+            </div>
+            <div class="card">
+                <img src="assets/car2.jpg" alt="Porsche 911 Carrera">
+                <h3>Porsche 911 Carrera</h3>
+                <p class="category">Superesportivo</p>
+                <p class="price">R$ 2.500 / dia</p>
+                <a href="ficha-tecnica.html" class="button">Ver Detalhes</a>
+            </div>
+            <div class="card">
+                <img src="assets/car3.jpg" alt="BMW X6 M">
+                <h3>BMW X6 M</h3>
+                <p class="category">SUV Esportivo</p>
+                <p class="price">R$ 1.800 / dia</p>
+                <a href="ficha-tecnica.html" class="button">Ver Detalhes</a>
+            </div>
+            <div class="card">
+                <img src="assets/car4.jpg" alt="Audi RS6 Avant">
+                <h3>Audi RS6 Avant</h3>
+                <p class="category">Station Wagon</p>
+                <p class="price">R$ 2.100 / dia</p>
+                <a href="ficha-tecnica.html" class="button">Ver Detalhes</a>
+            </div>
+        </section>
+    </main>
+
+</body>
+</html>
