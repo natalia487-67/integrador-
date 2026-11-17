@@ -380,6 +380,62 @@ html.js .reveal.in { opacity:1; transform:none; }
 .success-box .actions { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:8px; }
 @keyframes pop { from { transform:scale(.4); opacity:0; } to { transform:scale(1); opacity:1; } }
 @media (max-width:900px) { .checkout { grid-template-columns:1fr; } .stage { min-height:340px; } .panel { padding:28px 22px; } .spec-grid { grid-template-columns:1fr; } }
+
+/* ---------- Painel do cliente (completo) ---------- */
+.cp-wrap { max-width:1200px; margin:26px auto 0; padding:0 20px; }
+.cp-kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-bottom:22px; }
+.cp-kpi { padding:20px 22px; display:flex; align-items:center; gap:16px; text-decoration:none; color:inherit; }
+.cp-kpi .icon-tile { width:48px; height:48px; }
+.cp-kpi small { display:block; font-size:11.5px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:#8a8575; }
+.cp-kpi strong { display:block; font-size:24px; font-weight:800; color:var(--teal-dark); line-height:1.2; }
+.cp-kpi span.sub { display:block; font-size:12.5px; color:var(--muted); }
+.cp-tools { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:18px; }
+.cp-search { position:relative; flex:1; min-width:220px; }
+.cp-search svg { position:absolute; left:16px; top:50%; transform:translateY(-50%); width:18px; height:18px; fill:none; stroke:var(--teal-dark); stroke-width:1.8; stroke-linecap:round; opacity:.5; pointer-events:none; }
+.cp-search input { width:100%; height:46px; background:var(--bg-input); border:1.5px solid var(--line); border-radius:23px; padding:0 18px 0 44px; font:inherit; font-size:14.5px; outline:none; transition:border-color .2s, box-shadow .2s, background .2s; }
+.cp-search input:focus { background:#fff; border-color:var(--gold); box-shadow:0 0 0 4px rgba(182,159,84,.22); }
+.cp-tabs { display:flex; gap:8px; flex-wrap:wrap; }
+.cp-tabs .tab b { display:inline-block; margin-left:6px; min-width:20px; padding:0 6px; border-radius:10px; background:rgba(182,159,84,.25); color:var(--teal-dark); font-size:11.5px; line-height:20px; }
+.cp-tabs .tab.active b { background:rgba(255,255,255,.2); color:#fff; }
+.cp-sel { height:42px; border-radius:21px; border:1.5px solid var(--line); background:var(--bg-input); padding:0 14px; font:inherit; font-size:13px; font-weight:700; color:var(--teal-dark); cursor:pointer; outline:none; }
+.cp-sel:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(182,159,84,.22); }
+.cp-empty { max-width:520px; margin:30px auto; text-align:center; padding:40px 34px; }
+.cp-empty .icon-tile { margin:0 auto 16px; width:64px; height:64px; border-radius:20px; }
+.cp-empty h2 { font-size:22px; color:var(--teal-dark); font-weight:800; margin-bottom:8px; }
+.cp-empty p { color:var(--muted); margin-bottom:20px; }
+.cp-item { padding:22px 24px; margin-bottom:16px; display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center; }
+.cp-item .left { display:flex; align-items:center; gap:18px; min-width:0; }
+.cp-item .car-name { display:block; font-size:19px; font-weight:800; color:var(--teal-dark); }
+.cp-item .rental-dates { display:block; font-size:13.5px; color:var(--muted); margin:2px 0 8px; }
+.cp-item .right { text-align:right; }
+.cp-item .actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; margin-top:10px; }
+.cp-prog { height:8px; border-radius:6px; background:#e7e2d0; overflow:hidden; margin-top:10px; max-width:360px; }
+.cp-prog span { display:block; height:100%; background:linear-gradient(90deg,var(--gold),var(--cyan)); border-radius:6px; }
+.cp-meta { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.cp-badge { min-width:20px; height:20px; padding:0 6px; border-radius:10px; background:var(--gold); color:var(--teal-dark); font-size:11.5px; font-weight:800; display:inline-flex; align-items:center; justify-content:center; margin-left:6px; }
+.cp-banner { display:flex; align-items:center; gap:16px; padding:18px 22px; margin-bottom:20px; border-radius:20px; color:#fff; background:linear-gradient(120deg,#062e38,#0b4455); box-shadow:var(--shadow-md); flex-wrap:wrap; }
+.cp-banner .icon-tile { background:rgba(255,255,255,.12); } .cp-banner .icon-tile svg { stroke:var(--gold-light); }
+.cp-banner b { display:block; font-size:16px; } .cp-banner span { font-size:13.5px; opacity:.85; }
+.cp-banner .btn { margin-left:auto; }
+.cp-help { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:26px; }
+.cp-help a { display:flex; gap:14px; align-items:center; padding:18px; text-decoration:none; color:var(--teal-dark); font-weight:800; font-size:14.5px; }
+.cp-help small { display:block; font-weight:500; color:var(--muted); font-size:12.5px; }
+.cp-grid2 { display:grid; grid-template-columns:1.3fr 1fr; gap:20px; align-items:start; margin-bottom:6px; }
+.cp-card { padding:24px 26px; }
+.cp-card h2 { font-size:17px; font-weight:800; color:var(--teal-dark); margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+.cp-card h2 a { font-size:13px; font-weight:700; color:var(--cyan); text-decoration:none; }
+.cp-act { list-style:none; }
+.cp-act li { display:flex; gap:12px; align-items:flex-start; padding:11px 0; border-bottom:1px solid #f0ead9; font-size:14px; }
+.cp-act li:last-child { border-bottom:none; }
+.cp-act .dot { width:10px; height:10px; border-radius:50%; background:var(--gold); margin-top:6px; flex-shrink:0; }
+.cp-act small { display:block; color:var(--muted); font-size:12.5px; }
+.cp-act a { color:var(--teal-dark); font-weight:700; text-decoration:none; }
+.cp-act a:hover { text-decoration:underline; }
+.cp-next .car { font-size:22px; font-weight:800; color:var(--teal-dark); line-height:1.2; }
+.cp-next .when { margin:6px 0 14px; color:var(--muted); font-size:14px; }
+.cp-section-title { font-size:13px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:34px 4px 0; max-width:1200px; margin-left:auto; margin-right:auto; padding:0 20px; }
+@media (max-width:1000px) { .cp-kpis { grid-template-columns:repeat(2,1fr); } .cp-grid2 { grid-template-columns:1fr; } }
+@media (max-width:640px) { .cp-kpis { grid-template-columns:1fr; } .cp-item { grid-template-columns:1fr; } .cp-item .right { text-align:left; } .cp-item .actions { justify-content:flex-start; } }
 </style>
 </head>
 <body>
@@ -453,14 +509,27 @@ html.js .reveal.in { opacity:1; transform:none; }
         <a href="cadastro.html" class="btn btn-outline">Criar conta</a>
       </div>
     </section>
-    <div class="settings-container" data-auth="in" style="max-width:900px">
+    <div class="cp-wrap" data-auth="in">
+      <div class="cp-kpis">
+        <div class="card hover cp-kpi"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><div><small>Reservas ativas</small><strong id="kAct">0</strong><span class="sub" id="kActs"></span></div></div>
+        <div class="card hover cp-kpi"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><small>Próxima retirada</small><strong id="kNext">—</strong><span class="sub" id="kNexts"></span></div></div>
+        <div class="card hover cp-kpi"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><circle cx="12" cy="12" r="2.5"/><path d="M7 9v.1M17 15v.1"/></svg></div><div><small>Total em reservas</small><strong id="kSum">R$ 0</strong><span class="sub" id="kSums">valor das reservas ativas</span></div></div>
+        <a class="card hover cp-kpi" href="mensagens.html"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></div><div><small>Mensagens novas</small><strong id="kMsg">0</strong><span class="sub" id="kMsgs">do locador</span></div></a>
+      </div>
+      <div id="rsBanner"></div>
+      <div class="cp-tabs" id="tabs" role="tablist" style="margin-bottom:18px"></div>
       <div id="myList"></div>
-      <section class="card empty-card" id="myEmpty" style="display:none">
-        <div class="icon-tile"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
-        <h2>Nenhuma reserva ativa</h2>
-        <p>Você não possui reservas ativas no momento.</p>
+      <section class="card cp-empty" id="myEmpty" style="display:none">
+        <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div>
+        <h2 id="emptyT">Nenhuma reserva ativa</h2>
+        <p id="emptyP">Você não possui reservas ativas no momento.</p>
         <a class="btn btn-gold" href="veiculos.html">Ver veículos <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </section>
+      <div class="cp-help">
+        <a class="card hover" href="historico.html"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 12h6M10 16h6"/></svg></div><span>Histórico de locações<small>Reservas concluídas e canceladas</small></span></a>
+        <a class="card hover" href="mensagens.html"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></div><span>Falar com o locador<small>Tire dúvidas sobre sua reserva</small></span></a>
+        <a class="card hover" href="concierge.html"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19c0 1.5-2 2.5-5 2.5"/></svg></div><span>Concierge VIP<small>Entrega, motorista e mais</small></span></a>
+      </div>
     </div>
   </main>
 
@@ -730,24 +799,68 @@ var ROLE = window.dominusRole(), MGR = ROLE === 'gerente' || ROLE === 'admin';
 function findUser(login) { var l = String(login || '').trim().toLowerCase(); return DB.get('usr').filter(function (u) { return u.email.toLowerCase() === l || (u.usuario && u.usuario.toLowerCase() === l); })[0]; }
 function me() { var u = window.dominusUser() || {}; return { nome: u.name || 'João Silva Oliveira', email: u.email || 'joao.silva@email.com' }; }
 
-  var ACTIVE = ['pendente', 'confirmada', 'em-andamento'];
+  
+  var ACTIVE = ['pendente', 'confirmada', 'em-andamento'], flt = 'all';
   var CAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16l1.4-5a2 2 0 0 1 1.9-1.5h7.4a2 2 0 0 1 1.9 1.5L19 16"/><rect x="3" y="16" width="18" height="4" rx="1.5"/><path d="M6 20v1M18 20v1"/></svg>';
+  function today() { var d = new Date(); d.setHours(0, 0, 0, 0); return d; }
+  function dd(a, b) { return Math.round((a - b) / 86400000); }
+  function mineAll() { var u = me(); return DB.get('res').filter(function (r) { return r.email.toLowerCase() === u.email.toLowerCase() && ACTIVE.indexOf(r.status) >= 0; }); }
+  function unread(id) { return DB.get('msgs').filter(function (m) { return m.res === id && m.de !== 'cliente' && !m.lida; }).length; }
+  function when(r) {
+    var a = parseBR(r.ret), b = parseBR(r.dev), t = today(); if (!a || !b) return '';
+    if (r.status === 'em-andamento' || (t >= a && t <= b)) { var left = dd(b, t); return left <= 0 ? 'Devolução hoje' : 'Devolução em ' + left + (left === 1 ? ' dia' : ' dias'); }
+    var n = dd(a, t); return n < 0 ? 'Retirada atrasada em ' + (-n) + (n === -1 ? ' dia' : ' dias') : n === 0 ? 'Retirada hoje' : n === 1 ? 'Retirada amanhã' : 'Retirada em ' + n + ' dias';
+  }
+  function progress(r) {
+    var a = parseBR(r.ret), b = parseBR(r.dev), t = today(); if (!a || !b || r.status !== 'em-andamento') return '';
+    var p = Math.max(0, Math.min(100, Math.round((t - a) / Math.max(1, (b - a)) * 100)));
+    return '<div class="cp-prog" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="' + p + '" aria-label="Andamento da locação"><span style="width:' + p + '%"></span></div>';
+  }
+  function ics(r) {
+    var a = parseBR(r.ret), b = parseBR(r.dev); if (!a || !b) return;
+    function f(d) { return d.getFullYear() + pad(d.getMonth() + 1) + pad(d.getDate()); }
+    var e = new Date(b.getTime() + 86400000);
+    var txt = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Dominus Auto//PT', 'BEGIN:VEVENT', 'UID:' + r.id + '@dominusauto', 'DTSTAMP:' + f(new Date()) + 'T000000Z', 'DTSTART;VALUE=DATE:' + f(a), 'DTEND;VALUE=DATE:' + f(e), 'SUMMARY:Locação Dominus Auto - ' + r.car, 'DESCRIPTION:Reserva ' + r.id + '. Retirada ' + r.ret + ', devolução ' + r.dev + '.', 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+    var l = document.createElement('a'); l.href = URL.createObjectURL(new Blob([txt], { type: 'text/calendar' })); l.download = 'reserva-' + r.id + '.ics'; document.body.appendChild(l); l.click(); l.remove();
+  }
   function render() {
-    var u = me(), mine = DB.get('res').filter(function (r) { return r.email.toLowerCase() === u.email.toLowerCase() && ACTIVE.indexOf(r.status) >= 0; });
-    document.getElementById('myEmpty').style.display = mine.length ? 'none' : '';
-    document.getElementById('myList').innerHTML = mine.map(function (r) {
-      return '<article class="card hover my-res"><div class="left"><div class="icon-tile">' + CAR + '</div><div><span class="car-name">' + esc(r.car) + '</span><span class="rental-dates">' + esc(r.id) + ' - ' + esc(r.ret) + ' a ' + esc(r.dev) + '</span>' + chipOf(ST, r.status) + '</div></div>' +
-        '<div style="text-align:right"><div class="rental-price">' + brl(r.total) + '</div><div class="actions" style="margin-top:8px;justify-content:flex-end"><a class="btn btn-sm btn-outline" href="reserva-detalhe.html?id=' + r.id + '">Detalhes</a><a class="btn btn-sm btn-outline" href="mensagens.html?r=' + r.id + '">Falar com o locador</a>' +
-        (r.status !== 'em-andamento' ? '<button type="button" class="btn btn-sm btn-outline" data-a="cancel" data-id="' + r.id + '">Cancelar</button>' : '') + '</div></div></article>';
+    var all = mineAll(), t = today();
+    var list = all.filter(function (r) { return flt === 'all' || r.status === flt; });
+    list.sort(function (x, y) { return (parseBR(x.ret) || 0) - (parseBR(y.ret) || 0); });
+    // KPIs
+    document.getElementById('kAct').textContent = all.length;
+    var fut = all.filter(function (r) { var a = parseBR(r.ret); return a && a >= t; }).sort(function (x, y) { return parseBR(x.ret) - parseBR(y.ret); })[0];
+    document.getElementById('kNext').textContent = fut ? fut.ret.slice(0, 5) : '—'; document.getElementById('kNexts').textContent = fut ? fut.car : 'sem retiradas agendadas';
+    document.getElementById('kSum').textContent = brl(all.reduce(function (s, r) { return s + (r.total || 0); }, 0));
+    var me0 = me(), nu = DB.get('msgs').filter(function (m) { return m.de !== 'cliente' && !m.lida && all.some(function (r) { return r.id === m.res; }); }).length;
+    document.getElementById('kMsg').textContent = nu;
+    // banner
+    var bn = document.getElementById('rsBanner');
+    bn.innerHTML = fut ? '<div class="cp-banner">' + '<div class="icon-tile">' + CAR + '</div><div><b>' + esc(fut.car) + ' · ' + esc(when(fut)) + '</b><span>Reserva ' + esc(fut.id) + ' — retirada em ' + esc(fut.ret) + '</span></div><a class="btn btn-gold btn-sm" href="reserva-detalhe.html?id=' + encodeURIComponent(fut.id) + '">Ver detalhes</a></div>' : '';
+    // tabs
+    var c = { all: all.length }; ACTIVE.forEach(function (k) { c[k] = all.filter(function (r) { return r.status === k; }).length; });
+    var T = [['all', 'Todas'], ['pendente', 'Pendentes'], ['confirmada', 'Confirmadas'], ['em-andamento', 'Em andamento']];
+    document.getElementById('tabs').style.display = all.length ? '' : 'none';
+    document.getElementById('tabs').innerHTML = T.map(function (x) { return '<button type="button" class="tab' + (flt === x[0] ? ' active' : '') + '" data-f="' + x[0] + '" role="tab" aria-selected="' + (flt === x[0]) + '">' + x[1] + '<b>' + c[x[0]] + '</b></button>'; }).join('');
+    document.getElementById('myEmpty').style.display = list.length ? 'none' : '';
+    document.getElementById('emptyT').textContent = all.length ? 'Nada neste filtro' : 'Nenhuma reserva ativa';
+    document.getElementById('emptyP').textContent = all.length ? 'Nenhuma reserva com este status no momento.' : 'Você não possui reservas ativas no momento.';
+    document.getElementById('myList').innerHTML = list.map(function (r) {
+      var un = unread(r.id);
+      return '<article class="card hover cp-item"><div class="left"><div class="icon-tile">' + CAR + '</div><div><span class="car-name">' + esc(r.car) + '</span><span class="rental-dates">' + esc(r.id) + ' · ' + esc(r.ret) + ' a ' + esc(r.dev) + ' · ' + (r.days || '') + (r.days === 1 ? ' diária' : ' diárias') + '</span><div class="cp-meta">' + chipOf(ST, r.status) + '<span class="chip chip-gray">' + esc(PAY[r.pay] || r.pay) + '</span><span style="font-size:13px;color:var(--muted);font-weight:600">' + esc(when(r)) + '</span></div>' + progress(r) + '</div></div>' +
+        '<div class="right"><div class="rental-price">' + brl(r.total) + '</div><div class="actions"><a class="btn btn-sm btn-outline" href="reserva-detalhe.html?id=' + encodeURIComponent(r.id) + '">Detalhes</a><a class="btn btn-sm btn-outline" href="mensagens.html?r=' + encodeURIComponent(r.id) + '">Mensagens' + (un ? '<span class="cp-badge">' + un + '</span>' : '') + '</a><button type="button" class="btn btn-sm btn-outline" data-a="ics" data-id="' + esc(r.id) + '">Calendário</button>' + (r.status !== 'em-andamento' ? '<button type="button" class="btn btn-sm btn-outline" data-a="cancel" data-id="' + esc(r.id) + '">Cancelar</button>' : '') + '</div></div></article>';
     }).join('');
   }
+  document.getElementById('tabs').addEventListener('click', function (e) { var b = e.target.closest('.tab'); if (!b) return; flt = b.getAttribute('data-f'); render(); });
   document.getElementById('myList').addEventListener('click', function (e) {
     var b = e.target.closest('button[data-a]'); if (!b) return;
-    var id = b.getAttribute('data-id'), rs = DB.get('res'), r = rs.filter(function (x) { return x.id === id; })[0];
-    if (b.getAttribute('data-a') === 'cancel') confirmDlg('Cancelar reserva', 'Deseja cancelar a reserva ' + id + ' (' + r.car + ')?', 'Cancelar reserva', function () { r.status = 'cancelada'; DB.set('res', rs); render(); window.dominusToast('Reserva cancelada'); });
-    else dlg({ title: 'Reserva ' + id, body: '<div class="summary"><div><span class="k">Veículo</span><b>' + esc(r.car) + '</b></div><div><span class="k">Retirada</span><b>' + esc(r.ret) + '</b></div><div><span class="k">Devolução</span><b>' + esc(r.dev) + '</b></div><div><span class="k">Pagamento</span><b>' + esc(PAY[r.pay] || r.pay) + '</b></div><div><span class="k">Status</span><b>' + chipOf(ST, r.status) + '</b></div><div class="total"><span class="k">Total</span><b>' + brl(r.total) + '</b></div></div>' });
+    var id = b.getAttribute('data-id'), rs = DB.get('res'), r = rs.filter(function (x) { return x.id === id; })[0]; if (!r) return;
+    if (b.getAttribute('data-a') === 'ics') { ics(r); window.dominusToast('Evento do calendário baixado'); return; }
+    confirmDlg('Cancelar reserva', 'Deseja cancelar a reserva ' + id + ' (' + r.car + ')?', 'Cancelar reserva', function () { r.status = 'cancelada'; DB.set('res', rs); render(); window.dominusToast('Reserva cancelada'); });
   });
   render();
-})();</script>
+
+})();
+</script>
 </body>
 </html>

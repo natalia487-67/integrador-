@@ -245,6 +245,23 @@ html.js .reveal.in { opacity:1; transform:none; }
 .menu-item small { display:block; font-weight:500; color:var(--muted); font-size:13px; }
 .menu-item .icon-tile { transition:background .25s; }
 .menu-item .icon-tile svg { transition:stroke .25s; }
+
+.back-btn { display:flex; width:fit-content; margin-bottom:34px; padding:8px 18px 8px 14px; font-size:13px; gap:8px; border-color:rgba(255,255,255,.3); background:rgba(255,255,255,.06); }
+.back-btn .btn-arrow { width:17px; height:17px; }
+.page-hero .back-btn + .eyebrow { display:block; }
+.back-btn .btn-arrow { transform:rotate(180deg); }
+.back-btn:hover:not(:disabled) .btn-arrow { transform:rotate(180deg) translateX(4px); }
+.group-title { font-size:13px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:30px 4px 12px; }
+.settings-row .pref-text { flex:1; min-width:0; }
+.settings-row .pref-text strong { display:block; font-size:15.5px; color:var(--teal-dark); font-weight:700; }
+.settings-row select.input-rounded { appearance:none; -webkit-appearance:none; cursor:pointer; }
+.quick-links { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+.quick-links .menu-item { padding:18px; font-size:14.5px; }
+.danger-zone { border-color:#f1c9c5; background:#fffafa; }
+.danger-zone .icon-tile { background:#fce8e6; } .danger-zone .icon-tile svg { stroke:var(--danger); }
+.btn-danger { background:#fff; color:var(--danger); border-color:#f1c9c5; }
+.btn-danger:hover:not(:disabled) { background:var(--danger); color:#fff; border-color:var(--danger); }
+.edit-actions.bottom { margin:4px 0 0; }
 </style>
 </head>
 <body>
@@ -268,7 +285,7 @@ html.js .reveal.in { opacity:1; transform:none; }
         </div>
         <div class="dropdown-menu-floating">
           <div class="dd-head"><strong class="dd-name">Minha conta</strong><span class="dd-mail"></span></div>
-          <a href="index-gerente.html" class="dropdown-item staff-only dd-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg><span>Meu painel</span></a>
+          <a href="index-gerente.html" class="dropdown-item dd-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg><span>Meu painel</span></a>
           <a href="seguranca.html" class="dropdown-item">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
             <span>Dados e segurança</span>
@@ -302,6 +319,7 @@ html.js .reveal.in { opacity:1; transform:none; }
   <main class="site-main" id="conteudo">
     <section class="page-hero ">
       <div class="page-hero-in">
+        <a href="menu.html" class="btn btn-ghost btn-sm back-btn" id="backBtn" aria-label="Voltar para a página anterior"><svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Voltar</a>
         <span class="eyebrow">MINHA CONTA</span>
         <h1>Informações da <em>conta</em></h1>
         <p>Confira e atualize os seus dados de contato.</p>
@@ -339,7 +357,99 @@ html.js .reveal.in { opacity:1; transform:none; }
           <div class="info"><span class="label">Telefone / WhatsApp</span><span class="value" data-v="phone"></span>
             <input type="tel" class="input-rounded no-ico view-input" data-i="phone" autocomplete="tel" aria-label="Telefone / WhatsApp"></div>
         </div>
-      <div class="edit-actions"><button type="button" class="btn btn-outline btn-sm" id="cancelBtn">Cancelar</button><button type="button" class="btn btn-gold btn-sm" id="saveBtn">Salvar alterações</button></div>
+        <h3 class="group-title">Dados pessoais</h3>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="11" r="2"/><path d="M6 16c.4-1.6 1.6-2.4 3-2.4s2.6.8 3 2.4M14 10h4M14 13h3"/></svg></div>
+          <div class="info"><span class="label">CPF</span><span class="value" data-v="cpf"></span>
+            <input type="text" class="input-rounded no-ico view-input" data-i="cpf" autocomplete="off" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" aria-label="CPF"></div>
+        </div>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div>
+          <div class="info"><span class="label">Data de nascimento</span><span class="value" data-v="birth"></span>
+            <input type="date" class="input-rounded no-ico view-input" data-i="birth" autocomplete="bday" aria-label="Data de nascimento"></div>
+        </div>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M7 10h6M7 14h4M16 10h2"/></svg></div>
+          <div class="info"><span class="label">CNH (número)</span><span class="value" data-v="cnh"></span>
+            <input type="text" class="input-rounded no-ico view-input" data-i="cnh" autocomplete="off" placeholder="Número da habilitação" inputmode="numeric" maxlength="11" aria-label="CNH (número)"></div>
+        </div>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="3"/><path d="M8 3v4M16 3v4M4 10h16"/></svg></div>
+          <div class="info"><span class="label">Validade da CNH</span><span class="value" data-v="cnhval"></span>
+            <input type="date" class="input-rounded no-ico view-input" data-i="cnhval" aria-label="Validade da CNH"></div>
+        </div>
+        <h3 class="group-title">Endereço</h3>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+          <div class="info"><span class="label">CEP</span><span class="value" data-v="cep"></span>
+            <input type="text" class="input-rounded no-ico view-input" data-i="cep" autocomplete="postal-code" placeholder="00000-000" inputmode="numeric" maxlength="9" aria-label="CEP"></div>
+        </div>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-7 8 7v8a1 1 0 0 1-1 1h-4v-6h-6v6H5a1 1 0 0 1-1-1z"/></svg></div>
+          <div class="info"><span class="label">Rua e número</span><span class="value" data-v="street"></span>
+            <input type="text" class="input-rounded no-ico view-input" data-i="street" autocomplete="street-address" placeholder="Rua, número e complemento" aria-label="Rua e número"></div>
+        </div>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+          <div class="info"><span class="label">Cidade</span><span class="value" data-v="city"></span>
+            <input type="text" class="input-rounded no-ico view-input" data-i="city" autocomplete="address-level2" aria-label="Cidade"></div>
+        </div>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg></div>
+          <div class="info"><span class="label">Estado</span><span class="value" data-v="state"></span>
+            <select class="input-rounded no-ico view-input" data-i="state" aria-label="Estado"><option value="">Não informado</option><option value="AC">AC</option><option value="AL">AL</option><option value="AP">AP</option><option value="AM">AM</option><option value="BA">BA</option><option value="CE">CE</option><option value="DF">DF</option><option value="ES">ES</option><option value="GO">GO</option><option value="MA">MA</option><option value="MT">MT</option><option value="MS">MS</option><option value="MG">MG</option><option value="PA">PA</option><option value="PB">PB</option><option value="PR">PR</option><option value="PE">PE</option><option value="PI">PI</option><option value="RJ">RJ</option><option value="RN">RN</option><option value="RS">RS</option><option value="RO">RO</option><option value="RR">RR</option><option value="SC">SC</option><option value="SP">SP</option><option value="SE">SE</option><option value="TO">TO</option></select></div>
+        </div>
+        <h3 class="group-title">Contato de emergência</h3>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4.5 20c.8-3.6 3.8-5.5 7.5-5.5s6.7 1.9 7.5 5.5"/></svg></div>
+          <div class="info"><span class="label">Nome do contato</span><span class="value" data-v="emName"></span>
+            <input type="text" class="input-rounded no-ico view-input" data-i="emName" autocomplete="off" aria-label="Nome do contato"></div>
+        </div>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></div>
+          <div class="info"><span class="label">Telefone do contato</span><span class="value" data-v="emPhone"></span>
+            <input type="tel" class="input-rounded no-ico view-input" data-i="emPhone" autocomplete="off" placeholder="(00) 00000-0000" aria-label="Telefone do contato"></div>
+        </div>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 8l8 6 8-6"/></svg></div>
+          <div class="pref-text"><strong>Notificações por e-mail</strong><span class="desc">Confirmações de reserva, recibos e avisos importantes.</span></div>
+          <button type="button" class="toggle-switch" data-pref="email" role="switch" aria-checked="false" aria-label="Notificações por e-mail"><span class="knob"></span></button>
+        </div>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></div>
+          <div class="pref-text"><strong>Avisos por WhatsApp</strong><span class="desc">Lembretes de retirada, devolução e status da entrega.</span></div>
+          <button type="button" class="toggle-switch" data-pref="whats" role="switch" aria-checked="false" aria-label="Avisos por WhatsApp"><span class="knob"></span></button>
+        </div>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12V4h8l10 10-8 8z"/><circle cx="7.5" cy="8.5" r="1.3"/></svg></div>
+          <div class="pref-text"><strong>Ofertas e novidades</strong><span class="desc">Receba promoções exclusivas e lançamentos da frota.</span></div>
+          <button type="button" class="toggle-switch" data-pref="promo" role="switch" aria-checked="false" aria-label="Ofertas e novidades"><span class="knob"></span></button>
+        </div>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div>
+          <div class="pref-text"><strong>Contato do Concierge VIP</strong><span class="desc">Permitir que o concierge entre em contato proativamente.</span></div>
+          <button type="button" class="toggle-switch" data-pref="concierge" role="switch" aria-checked="false" aria-label="Contato do Concierge VIP"><span class="knob"></span></button>
+        </div>
+        <div class="card settings-row">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div>
+          <div class="info"><span class="label">Idioma preferido</span><span class="value" data-v="lang"></span>
+            <select class="input-rounded no-ico view-input" data-i="lang" aria-label="Idioma preferido"><option value="">Não informado</option><option value="Português (Brasil)">Português (Brasil)</option><option value="English">English</option><option value="Español">Español</option></select></div>
+        </div>
+        <div class="edit-actions bottom"><button type="button" class="btn btn-outline btn-sm" data-cancel>Cancelar</button><button type="button" class="btn btn-gold btn-sm" data-save>Salvar alterações</button></div>
+        <h3 class="group-title">Preferências e notificações</h3>
+        <h3 class="group-title">Atalhos da conta</h3>
+        <div class="quick-links">
+          <a href="seguranca.html" class="card hover menu-item"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="9" rx="3"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></div><span>Dados e segurança<small>Senha e verificação</small></span></a>
+          <a href="pagamento.html" class="card hover menu-item"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="3"/><path d="M3 10h18M7 15h4"/></svg></div><span>Formas de pagamento<small>Cartões e PIX</small></span></a>
+          <a href="historico.html" class="card hover menu-item"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v4h4M10 12h6M10 16h6"/></svg></div><span>Histórico de locações<small>Reservas anteriores</small></span></a>
+          <a href="suporte.html" class="card hover menu-item"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.6 2.6 0 0 1 5 .8c0 1.8-2.5 2.2-2.5 3.9M12 17.2v.1"/></svg></div><span>Suporte<small>Ajuda e dúvidas</small></span></a>
+        </div>
+        <h3 class="group-title">Zona de risco</h3>
+        <div class="card settings-row danger-zone">
+          <div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"/></svg></div>
+          <div class="pref-text"><strong>Excluir minha conta</strong><span class="desc">Remove seus dados deste dispositivo. Esta ação não pode ser desfeita.</span></div>
+          <button type="button" class="btn btn-danger btn-sm" id="delBtn">Excluir conta</button>
+        </div>
     </div>
   </main>
 
@@ -480,28 +590,79 @@ html.js .reveal.in { opacity:1; transform:none; }
 </script>
   <script>(function(){
   var DEF = { name: 'João Silva Oliveira', email: 'joao.silva@email.com', phone: '(11) 98765-4321' };
+  var EXTRA = ['cpf','birth','cnh','cnhval','cep','street','city','state','emName','emPhone','lang'];
+  var PREFS = { email:true, whats:true, promo:false, concierge:false };
   var acc = document.getElementById('acc');
-  function cur() { var u = window.dominusUser(); if (!u) return Object.assign({}, DEF); return { name: u.name || '', email: u.email || '', phone: u.phone || '' }; }
+  function lsGet(k) { try { return JSON.parse(localStorage.getItem(k) || 'null'); } catch (e) { return null; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function cur() {
+    var u = window.dominusUser(), b = u ? { name: u.name || '', email: u.email || '', phone: u.phone || '' } : Object.assign({}, DEF), p = lsGet('dominus_profile') || {};
+    EXTRA.forEach(function (k) { b[k] = p[k] || ''; });
+    return b;
+  }
   function ini(n) { var p = (n || '').trim().split(/\s+/).filter(Boolean); return p.length ? (p[0][0] + (p.length > 1 ? p[p.length - 1][0] : '')).toUpperCase() : '?'; }
+  function fmtDate(v) { var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v || ''); return m ? m[3] + '/' + m[2] + '/' + m[1] : v; }
   function paint() {
     var u = cur();
-    ['name', 'email', 'phone'].forEach(function (k) { acc.querySelector('[data-v="' + k + '"]').textContent = u[k] || 'Não informado'; });
+    acc.querySelectorAll('[data-v]').forEach(function (el) {
+      var k = el.getAttribute('data-v'), v = u[k];
+      el.textContent = v ? (k === 'birth' || k === 'cnhval' ? fmtDate(v) : v) : 'Não informado';
+    });
     document.getElementById('pName').textContent = u.name || 'Cliente Dominus'; document.getElementById('pMail').textContent = u.email || '';
     document.getElementById('pAv').textContent = ini(u.name);
   }
   function setEdit(on) {
     acc.classList.toggle('editing', on);
     document.getElementById('editBtn').style.display = on ? 'none' : '';
-    if (on) { var u = cur(); acc.querySelectorAll('[data-i]').forEach(function (i) { i.value = u[i.getAttribute('data-i')]; }); acc.querySelector('[data-i="name"]').focus(); }
+    if (on) { var u = cur(); acc.querySelectorAll('[data-i]').forEach(function (i) { i.value = u[i.getAttribute('data-i')] || ''; }); acc.querySelector('[data-i="name"]').focus(); }
   }
+  function mask(el, fn) { el.addEventListener('input', function () { el.value = fn(el.value.replace(/\D/g, '')); }); }
+  mask(acc.querySelector('[data-i="cpf"]'), function (d) { d = d.slice(0, 11); return d.replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2'); });
+  mask(acc.querySelector('[data-i="cep"]'), function (d) { d = d.slice(0, 8); return d.replace(/(\d{5})(\d)/, '$1-$2'); });
+  function phoneMask(d) { d = d.slice(0, 11); if (d.length > 10) return d.replace(/(\d{2})(\d{5})(\d{4})/, '($1) $2-$3'); if (d.length > 6) return d.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3'); if (d.length > 2) return d.replace(/(\d{2})(\d+)/, '($1) $2'); return d; }
+  mask(acc.querySelector('[data-i="phone"]'), phoneMask);
+  mask(acc.querySelector('[data-i="emPhone"]'), phoneMask);
+  mask(acc.querySelector('[data-i="cnh"]'), function (d) { return d.slice(0, 11); });
+
   document.getElementById('editBtn').addEventListener('click', function () { setEdit(true); });
-  document.getElementById('cancelBtn').addEventListener('click', function () { setEdit(false); });
-  document.getElementById('saveBtn').addEventListener('click', function () {
-    var n = acc.querySelector('[data-i="name"]'), m = acc.querySelector('[data-i="email"]'), p = acc.querySelector('[data-i="phone"]');
+  acc.querySelectorAll('[data-cancel]').forEach(function (b) { b.addEventListener('click', function () { setEdit(false); }); });
+  acc.querySelectorAll('[data-save]').forEach(function (b) { b.addEventListener('click', save); });
+  function val(k) { return acc.querySelector('[data-i="' + k + '"]'); }
+  function save() {
+    var n = val('name'), m = val('email'), cpf = val('cpf'), cep = val('cep');
     if (n.value.trim().length < 2) { n.focus(); window.dominusToast('Informe o nome completo.'); return; }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(m.value.trim())) { m.focus(); window.dominusToast('Informe um e-mail válido.'); return; }
-    try { localStorage.setItem('dominus_user', JSON.stringify({ name: n.value.trim(), email: m.value.trim(), phone: p.value.trim() })); } catch (e) {}
+    if (cpf.value && cpf.value.replace(/\D/g, '').length !== 11) { cpf.focus(); window.dominusToast('CPF incompleto.'); return; }
+    if (cep.value && cep.value.replace(/\D/g, '').length !== 8) { cep.focus(); window.dominusToast('CEP incompleto.'); return; }
+    lsSet('dominus_user', { name: n.value.trim(), email: m.value.trim(), phone: val('phone').value.trim() });
+    var p = {}; EXTRA.forEach(function (k) { p[k] = val(k).value.trim(); }); lsSet('dominus_profile', p);
     paint(); setEdit(false); window.dominusPaintUser(); window.dominusToast('Informações atualizadas!');
+  }
+
+  // preferências (salvas na hora)
+  var prefs = Object.assign({}, PREFS, lsGet('dominus_prefs') || {});
+  acc.querySelectorAll('[data-pref]').forEach(function (t) {
+    var k = t.getAttribute('data-pref');
+    function draw() { t.classList.toggle('on', !!prefs[k]); t.setAttribute('aria-checked', prefs[k] ? 'true' : 'false'); }
+    draw();
+    t.addEventListener('click', function () { prefs[k] = !prefs[k]; lsSet('dominus_prefs', prefs); draw(); window.dominusToast('Preferência atualizada.'); });
+  });
+
+  // botão voltar
+  var back = document.getElementById('backBtn');
+  if (back) back.addEventListener('click', function (e) {
+    var ref = document.referrer, same = false;
+    try { same = ref && new URL(ref).origin === location.origin && !/conta\.html/i.test(ref); } catch (x) {}
+    if (same || (history.length > 1 && !ref)) { e.preventDefault(); history.back(); }
+    else back.setAttribute('href', window.dominusRole() === 'cliente' ? 'menu.html' : window.dominusHome());
+  });
+  if (back) back.setAttribute('href', window.dominusRole() === 'cliente' ? 'menu.html' : window.dominusHome());
+
+  // excluir conta
+  document.getElementById('delBtn').addEventListener('click', function () {
+    if (!confirm('Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.')) return;
+    try { ['dominus_auth','dominus_role','dominus_user','dominus_profile','dominus_prefs'].forEach(function (k) { localStorage.removeItem(k); }); } catch (e) {}
+    location.href = 'home.html';
   });
   paint();
 })();</script>

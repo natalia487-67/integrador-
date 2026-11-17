@@ -224,6 +224,64 @@ html.js .reveal.in { opacity:1; transform:none; }
 .plan-card.gold .plan-features li::before { background:rgba(255,255,255,.4); color:var(--teal-dark); }
 .plan-card.dark .plan-features li::before { background:rgba(201,176,103,.25); color:var(--gold-light); }
 @media (max-width:900px) { .plans-grid { grid-template-columns:1fr; max-width:460px; margin:0 auto; } .plan-card.gold, .plan-card.gold:hover { transform:none; } }
+
+/* ---------- Pop-up de assinatura ---------- */
+.modal-backdrop { position:fixed; inset:0; z-index:1000; display:flex; align-items:center; justify-content:center; padding:24px; background:rgba(6,30,38,.72); backdrop-filter:blur(6px); opacity:0; visibility:hidden; transition:opacity .3s ease, visibility 0s linear .3s; }
+.modal-backdrop.open { opacity:1; visibility:visible; transition:opacity .3s ease, visibility 0s; }
+.modal-box { position:relative; display:flex; width:100%; max-width:960px; max-height:92vh; background:var(--bg-main); border-radius:26px; overflow:hidden; box-shadow:0 30px 80px rgba(0,0,0,.5); transform:translateY(18px) scale(.97); transition:transform .35s cubic-bezier(.2,.7,.2,1); }
+.modal-backdrop.open .modal-box { transform:none; }
+.modal-close { position:absolute; top:14px; right:14px; z-index:5; width:38px; height:38px; border:none; border-radius:50%; background:#fff; color:var(--teal-dark); font-size:22px; line-height:1; cursor:pointer; box-shadow:0 4px 12px rgba(0,0,0,.2); transition:transform .25s, background .2s, color .2s; }
+.modal-close:hover { transform:rotate(90deg); background:var(--gold-light); color:#fff; }
+.modal-plan { position:relative; flex:1 1 46%; min-height:460px; margin:18px 0 18px 18px; border-radius:18px; overflow:hidden; display:flex; flex-direction:column; justify-content:flex-end; padding:28px 26px; color:#fff;
+  background:radial-gradient(360px 200px at 100% 0%, rgba(201,176,103,.22), transparent 70%), linear-gradient(145deg,#062e38,#0b4455); }
+.modal-plan.t-silver { background:radial-gradient(360px 200px at 100% 0%, rgba(255,255,255,.7), transparent 70%), linear-gradient(145deg,#cfd6d9,#eef0f1); color:var(--teal-dark); }
+.modal-plan.t-gold { background:radial-gradient(360px 200px at 100% 0%, rgba(255,255,255,.3), transparent 70%), linear-gradient(145deg,#b69f54,#d6c27f); color:var(--teal-dark); }
+.modal-plan::after { content:''; position:absolute; right:-30px; top:-30px; width:210px; height:210px; background:url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB4PSI4IiB5PSI4IiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHJ4PSI4IiBmaWxsPSIjYjY5ZjU0Ii8+PGNpcmNsZSBjeD0iNzIiIGN5PSIyOCIgcj0iMjAiIGZpbGw9IiNmMGViZDgiLz48Y2lyY2xlIGN4PSIyOCIgY3k9IjcyIiByPSIyMCIgZmlsbD0iIzQxOTZhNCIvPjxyZWN0IHg9IjUyIiB5PSI1MiIgd2lkdGg9IjQwIiBoZWlnaHQ9IjQwIiByeD0iOCIgZmlsbD0iI2M5YjA2NyIvPjwvc3ZnPg==') no-repeat center/contain; opacity:.14; pointer-events:none; }
+.modal-plan > * { position:relative; z-index:1; }
+.mp-eyebrow { font-size:11px; font-weight:800; letter-spacing:4px; opacity:.75; margin-bottom:6px; }
+.mp-name { font-size:40px; font-weight:800; line-height:1.1; margin-bottom:10px; }
+.mp-price { display:flex; align-items:baseline; gap:6px; margin-bottom:18px; }
+.mp-price strong { font-size:34px; font-weight:800; line-height:1; }
+.mp-price span { font-size:14px; font-weight:600; opacity:.8; }
+.mp-feats { list-style:none; font-size:14px; line-height:1.5; }
+.mp-feats li { position:relative; padding-left:28px; margin-bottom:10px; }
+.mp-feats li::before { content:'\2713'; position:absolute; left:0; top:1px; width:19px; height:19px; border-radius:50%; background:rgba(201,176,103,.3); color:var(--gold-light); font-size:11px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+.t-silver .mp-feats li::before, .t-gold .mp-feats li::before { background:rgba(6,46,56,.14); color:var(--teal-dark); }
+.modal-form { flex:1 1 54%; padding:40px 44px 34px; overflow-y:auto; }
+.modal-form .checkout-title { font-size:30px; font-weight:800; color:var(--gold); margin-bottom:22px; }
+.modal-form .input-rounded { margin-bottom:16px; padding-left:20px; }
+.modal-form .payment-methods-grid { margin:8px 0 0; }
+.modal-form .payment-card input { position:absolute; opacity:0; pointer-events:none; }
+.modal-estimate { margin-top:18px; min-height:44px; padding:10px 14px; border-radius:12px; background:var(--teal-dark); color:#fff; font-size:14px; font-weight:600; display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+.modal-estimate b { color:var(--gold-light); font-size:16px; }
+.modal-estimate.warn { background:#fce8e6; color:#b3261e; }
+.modal-estimate.idle { background:transparent; color:#666; font-weight:500; padding-left:0; }
+.modal-form [hidden] { display:none !important; }
+.sub-ok { text-align:center; padding:40px 0 6px; }
+.sub-ok .tick { width:68px; height:68px; margin:0 auto 16px; border-radius:50%; background:#e6f4ea; color:#1e8e3e; display:flex; align-items:center; justify-content:center; font-size:32px; font-weight:800; }
+.sub-ok h3 { font-size:24px; color:var(--teal-dark); margin-bottom:8px; }
+.sub-ok p { color:var(--muted); font-size:14.5px; margin-bottom:20px; }
+.modal-form .stepper { margin-bottom:18px; }
+.modal-form .field { margin-bottom:0; }
+.modal-form .field .input-rounded { margin-bottom:6px; }
+.modal-form .field-error { margin-bottom:8px; }
+.modal-form .form-grid { margin-top:8px; }
+.modal-form select.input-rounded { appearance:none; -webkit-appearance:none; cursor:pointer; }
+.sum { background:#fff; border:1px solid var(--card-line); border-radius:16px; padding:6px 16px; margin:0 0 14px; text-align:left; }
+.sum div { display:flex; justify-content:space-between; gap:12px; padding:8px 0; font-size:14px; border-bottom:1px solid var(--card-line); }
+.sum div:last-child { border-bottom:none; }
+.sum .k { color:var(--muted); } .sum b { color:var(--teal-dark); }
+.sum .total b { font-size:16px; }
+.terms { display:flex; gap:10px; align-items:flex-start; margin-top:16px; font-size:13px; color:var(--muted); cursor:pointer; }
+.terms input { margin-top:3px; accent-color:var(--gold); }
+.terms a { color:var(--teal-dark); font-weight:700; }
+.modal-form .sub-ok { padding-top:6px; }
+@media (max-width:800px) {
+  .modal-box { flex-direction:column; overflow-y:auto; }
+  .modal-plan { flex:0 0 auto; min-height:230px; margin:14px 14px 0; padding:22px; }
+  .mp-feats { display:none; }
+  .modal-form { padding:26px 24px 28px; overflow:visible; }
+}
 </style>
 </head>
 <body>
@@ -247,7 +305,7 @@ html.js .reveal.in { opacity:1; transform:none; }
         </div>
         <div class="dropdown-menu-floating">
           <div class="dd-head"><strong class="dd-name">Minha conta</strong><span class="dd-mail"></span></div>
-          <a href="index-gerente.html" class="dropdown-item staff-only dd-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg><span>Meu painel</span></a>
+          <a href="index-gerente.html" class="dropdown-item dd-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg><span>Meu painel</span></a>
           <a href="seguranca.html" class="dropdown-item">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
             <span>Dados e segurança</span>
@@ -467,6 +525,196 @@ html.js .reveal.in { opacity:1; transform:none; }
       if (vis > 0 && vis < 3) document.querySelector('.plans-grid').style.gridTemplateColumns = 'repeat(' + vis + ', minmax(0, 360px))', document.querySelector('.plans-grid').style.justifyContent = 'center';
     }
   } catch (e) {}
+})();</script>
+
+  <div class="modal-backdrop" id="planoModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="planoTitle">
+      <button type="button" class="modal-close" id="planoClose" aria-label="Fechar">&times;</button>
+      <div class="modal-plan" id="planoSide">
+        <span class="mp-eyebrow">ASSINATURA</span>
+        <strong class="mp-name" id="mpName"></strong>
+        <div class="mp-price"><strong id="mpPrice"></strong><span>/ mês</span></div>
+        <ul class="mp-feats" id="mpFeats"></ul>
+      </div>
+      <div class="modal-form">
+        <ol class="stepper" id="planoSteps" aria-label="Etapas da assinatura"><li class="step active" aria-current="step"><span class="dot">1</span><span>Início</span></li><li class="step"><span class="dot">2</span><span>Pagamento</span></li><li class="step"><span class="dot">3</span><span>Confirmação</span></li></ol>
+        <h2 class="checkout-title" id="planoTitle">Assinar Plano</h2>
+
+        <form id="planoForm" novalidate>
+          <section id="stp1">
+            <div class="field"><label class="field-label" for="fInicio">Data de Início</label>
+              <input type="text" id="fInicio" class="input-rounded" placeholder="dd/mm/aaaa" inputmode="numeric" maxlength="10" autocomplete="off" required>
+              <p class="field-error" role="alert"></p></div>
+            <div class="modal-estimate idle" id="planoEstimate" aria-live="polite">Informe a data de início para ver a cobrança.</div>
+            <button type="button" class="btn btn-gold btn-block" id="goStep2" style="margin-top:20px">Continuar <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </section>
+
+          <section id="stp2" hidden>
+            <div class="sum" id="planoSum"></div>
+            <div class="field"><label class="field-label" for="fCpf">CPF</label>
+              <input type="text" id="fCpf" class="input-rounded" placeholder="000.000.000-00" inputmode="numeric" maxlength="14" autocomplete="off" required>
+              <p class="field-error" role="alert"></p></div>
+            <div class="form-grid">
+              <div class="field"><label class="field-label" for="fUf">Estado</label>
+                <select id="fUf" class="input-rounded" required><option value="">Selecione</option><option>AC</option><option>AL</option><option>AP</option><option>AM</option><option>BA</option><option>CE</option><option>DF</option><option>ES</option><option>GO</option><option>MA</option><option>MT</option><option>MS</option><option>MG</option><option>PA</option><option>PB</option><option>PR</option><option>PE</option><option>PI</option><option>RJ</option><option>RN</option><option>RS</option><option>RO</option><option>RR</option><option>SC</option><option>SP</option><option>SE</option><option>TO</option></select>
+                <p class="field-error" role="alert"></p></div>
+              <div class="field"><label class="field-label" for="fCity">Cidade</label>
+                <input type="text" id="fCity" class="input-rounded" placeholder="Sua cidade" autocomplete="address-level2" required>
+                <p class="field-error" role="alert"></p></div>
+            </div>
+            <label class="field-label">Forma de Pagamento</label>
+            <div class="payment-methods-grid">
+              <label class="payment-card"><input type="radio" name="planoPay" value="Cartão"><svg viewBox="0 0 24 24" fill="#062e38"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg><br>Cartão</label>
+              <label class="payment-card"><input type="radio" name="planoPay" value="Pix"><svg viewBox="0 0 24 24" fill="#4196a4"><path d="M12 2l4 4-4 4-4-4zm0 8l4 4-4 4-4-4z"/></svg><br>Pix</label>
+            </div>
+            <p class="field-error" id="fPayErr" role="alert" style="margin-top:8px"></p>
+            <label class="terms"><input type="checkbox" id="fTerms"> <span>Li e aceito os <a href="termos.html" target="_blank" rel="noopener">Termos de Uso</a> e a renovação mensal automática.</span></label>
+            <p class="field-error" id="fTermsErr" role="alert"></p>
+            <button type="submit" class="btn btn-gold btn-block" style="margin-top:14px">Confirmar Assinatura</button>
+            <button type="button" class="btn btn-outline btn-block" id="backStep1" style="margin-top:10px">Voltar</button>
+          </section>
+        </form>
+
+        <div class="sub-ok" id="planoOk" hidden>
+          <div class="tick">&#10003;</div>
+          <h3>Assinatura confirmada!</h3>
+          <p id="planoOkTxt"></p>
+          <div class="sum" id="planoOkSum"></div>
+          <button type="button" class="btn btn-dark btn-block" id="planoOkClose">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<script>(function(){
+  var modal = document.getElementById('planoModal'), form = document.getElementById('planoForm'), ok = document.getElementById('planoOk');
+  var inp = document.getElementById('fInicio'), est = document.getElementById('planoEstimate'), title = document.getElementById('planoTitle');
+  var s1 = document.getElementById('stp1'), s2 = document.getElementById('stp2'), steps = [].slice.call(document.querySelectorAll('#planoSteps .step'));
+  var cpf = document.getElementById('fCpf'), uf = document.getElementById('fUf'), city = document.getElementById('fCity'), terms = document.getElementById('fTerms');
+  var cur = null, per = null, lastFocus = null;
+
+  function brl(n) { return 'R$ ' + n.toLocaleString('pt-BR'); }
+  function pad(n) { return ('0' + n).slice(-2); }
+  function fmt(d) { return pad(d.getDate()) + '/' + pad(d.getMonth() + 1) + '/' + d.getFullYear(); }
+  function esc(t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function parseBR(v) { var m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(v); if (!m) return null; var d = new Date(+m[3], +m[2] - 1, +m[1]); return d.getMonth() === +m[2] - 1 && d.getDate() === +m[1] ? d : null; }
+  function addMonth(d) { var r = new Date(d.getFullYear(), d.getMonth() + 1, 1); r.setDate(Math.min(d.getDate(), new Date(r.getFullYear(), r.getMonth() + 1, 0).getDate())); return r; }
+  function validCpf(v) {
+    var d = v.replace(/\D/g, ''); if (d.length !== 11 || /^(\d)\1{10}$/.test(d)) return false;
+    for (var t = 9; t < 11; t++) { var sum = 0; for (var i = 0; i < t; i++) sum += +d[i] * (t + 1 - i); var dv = (sum * 10) % 11 % 10; if (dv !== +d[t]) return false; }
+    return true;
+  }
+  function setErr(el, m) { var f = el.closest('.field'); f.classList.toggle('invalid', !!m); f.querySelector('.field-error').textContent = m || ''; }
+  function setEst(cls, h) { est.className = 'modal-estimate ' + cls; est.innerHTML = h; }
+  function rows(list) { return list.map(function (r, i) { return '<div' + (r[2] ? ' class="total"' : '') + '><span class="k">' + esc(r[0]) + '</span><b>' + esc(r[1]) + '</b></div>'; }).join(''); }
+
+  function update() {
+    var v = inp.value;
+    if (v.length < 10) { setEst('idle', 'Informe a data de início para ver a cobrança.'); return null; }
+    var d = parseBR(v); if (!d) { setEst('warn', 'Confira o formato da data (dd/mm/aaaa).'); return null; }
+    var t = new Date(); t.setHours(0, 0, 0, 0);
+    if (d < t) { setEst('warn', 'A data de início não pode ser no passado.'); return null; }
+    var r = addMonth(d);
+    setEst('', '<span>1ª cobrança · renova em ' + fmt(r) + '</span><b>' + brl(cur.preco) + '</b>');
+    return { inicio: d, renova: r };
+  }
+  function goStep(n) {
+    steps.forEach(function (el, i) { el.classList.toggle('active', i === n - 1); el.classList.toggle('done', i < n - 1); if (i === n - 1) el.setAttribute('aria-current', 'step'); else el.removeAttribute('aria-current'); });
+    s1.hidden = n !== 1; s2.hidden = n !== 2; form.hidden = n === 3; ok.hidden = n !== 3;
+    title.textContent = n === 1 ? 'Assinar Plano' : n === 2 ? 'Confirmação da Assinatura' : 'Tudo certo!';
+    var f = n === 1 ? inp : n === 2 ? cpf : null; if (f) setTimeout(function () { f.focus(); }, 40);
+    var box = modal.querySelector('.modal-form'); if (box) box.scrollTop = 0;
+  }
+
+  inp.addEventListener('input', function () {
+    var v = inp.value.replace(/\D/g, '').slice(0, 8);
+    if (v.length > 4) v = v.slice(0, 2) + '/' + v.slice(2, 4) + '/' + v.slice(4); else if (v.length > 2) v = v.slice(0, 2) + '/' + v.slice(2);
+    inp.value = v; setErr(inp, ''); update();
+  });
+  cpf.addEventListener('input', function () {
+    var d = cpf.value.replace(/\D/g, '').slice(0, 11);
+    cpf.value = d.replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2'); setErr(cpf, '');
+  });
+  uf.addEventListener('change', function () { setErr(uf, ''); });
+  city.addEventListener('input', function () { setErr(city, ''); });
+  terms.addEventListener('change', function () { document.getElementById('fTermsErr').textContent = ''; });
+  form.querySelectorAll('.payment-card input').forEach(function (r) {
+    r.addEventListener('change', function () { document.getElementById('fPayErr').textContent = ''; form.querySelectorAll('.payment-card').forEach(function (c) { c.classList.toggle('selected', c.querySelector('input').checked); }); });
+  });
+
+  document.getElementById('goStep2').addEventListener('click', function () {
+    per = update();
+    if (!per) { setErr(inp, inp.value.length < 10 ? 'Informe a data de início.' : 'Confira a data informada.'); inp.focus(); return; }
+    document.getElementById('planoSum').innerHTML = rows([['Plano', cur.nome], ['Início', fmt(per.inicio)], ['Renovação', fmt(per.renova)], ['Mensalidade', brl(cur.preco), true]]);
+    goStep(2);
+  });
+  document.getElementById('backStep1').addEventListener('click', function () { goStep(1); });
+
+  function openModal(card) {
+    var name = card.querySelector('.plan-header').textContent.trim();
+    var preco = parseInt(card.querySelector('.plan-price strong').textContent.replace(/\D/g, ''), 10) || 0;
+    cur = { nome: name, preco: preco };
+    document.getElementById('mpName').textContent = name;
+    document.getElementById('mpPrice').textContent = brl(preco);
+    var ul = document.getElementById('mpFeats'); ul.innerHTML = '';
+    card.querySelectorAll('.plan-features li').forEach(function (li) { var n = document.createElement('li'); n.textContent = li.textContent; ul.appendChild(n); });
+    document.getElementById('planoSide').className = 'modal-plan t-' + (card.classList.contains('gold') ? 'gold' : card.classList.contains('dark') ? 'black' : 'silver');
+    inp.value = ''; cpf.value = ''; uf.value = ''; city.value = ''; terms.checked = false;
+    form.querySelectorAll('.payment-card').forEach(function (c) { c.classList.remove('selected'); c.querySelector('input').checked = false; });
+    form.querySelectorAll('.field').forEach(function (f) { f.classList.remove('invalid'); });
+    ['fPayErr', 'fTermsErr'].forEach(function (id) { document.getElementById(id).textContent = ''; });
+    per = null; update(); goStep(1);
+    lastFocus = document.activeElement;
+    modal.classList.add('open'); modal.setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('.plan-card a[data-auth="in"]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); openModal(a.closest('.plan-card')); });
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (s2.hidden) return;
+    var bad = null;
+    if (!validCpf(cpf.value)) { setErr(cpf, 'Digite um CPF válido.'); bad = bad || cpf; }
+    if (!uf.value) { setErr(uf, 'Selecione o estado.'); bad = bad || uf; }
+    if (city.value.trim().length < 2) { setErr(city, 'Informe a cidade.'); bad = bad || city; }
+    var sel = form.querySelector('input[name="planoPay"]:checked');
+    if (!sel) { document.getElementById('fPayErr').textContent = 'Escolha uma forma de pagamento.'; bad = bad || form.querySelector('input[name="planoPay"]'); }
+    if (!terms.checked) { document.getElementById('fTermsErr').textContent = 'Aceite os termos para continuar.'; bad = bad || terms; }
+    if (bad) { bad.focus(); return; }
+
+    var u = null; try { u = window.dominusUser && window.dominusUser(); } catch (x) {}
+    var email = u && u.email ? u.email : '';
+    var proto = 'ASS-' + Date.now().toString().slice(-6);
+    var sub = { id: proto, plano: cur.nome, preco: cur.preco, inicio: fmt(per.inicio), renova: fmt(per.renova), pagamento: sel.value, cidade: city.value.trim(), uf: uf.value, email: email };
+    try {
+      localStorage.setItem('dominus_assinatura', JSON.stringify(sub));
+      var cs = JSON.parse(localStorage.getItem('dominus_clientes') || 'null');
+      if (cs && email) { cs.forEach(function (c) { if (c.email === email) { c.plano = cur.nome; c.status = 'ativo'; c.renova = sub.renova; } }); localStorage.setItem('dominus_clientes', JSON.stringify(cs)); }
+    } catch (x) {}
+    document.getElementById('planoOkTxt').textContent = 'Sua assinatura ' + cur.nome + ' está ativa. Protocolo ' + proto + '.';
+    document.getElementById('planoOkSum').innerHTML = rows([['Plano', cur.nome], ['Pagamento', sel.value], ['Início', sub.inicio], ['Próxima renovação', sub.renova], ['Mensalidade', brl(cur.preco), true]]);
+    goStep(3);
+  });
+
+  document.getElementById('planoClose').addEventListener('click', closeModal);
+  document.getElementById('planoOkClose').addEventListener('click', closeModal);
+  modal.addEventListener('mousedown', function (e) { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', function (e) {
+    if (!modal.classList.contains('open')) return;
+    if (e.key === 'Escape') { closeModal(); return; }
+    if (e.key === 'Tab') {
+      var f = [].slice.call(modal.querySelectorAll('button, input:not([type=hidden]), select, a[href]')).filter(function (n) { return n.offsetParent !== null; });
+      if (!f.length) return;
+      var a = f[0], z = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === a) { e.preventDefault(); z.focus(); }
+      else if (!e.shiftKey && document.activeElement === z) { e.preventDefault(); a.focus(); }
+    }
+  });
 })();</script>
 </body>
 </html>

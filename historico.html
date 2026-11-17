@@ -245,6 +245,77 @@ html.js .reveal.in { opacity:1; transform:none; }
 .menu-item small { display:block; font-weight:500; color:var(--muted); font-size:13px; }
 .menu-item .icon-tile { transition:background .25s; }
 .menu-item .icon-tile svg { transition:stroke .25s; }
+
+/* ---------- Painel do cliente (completo) ---------- */
+.cp-wrap { max-width:1200px; margin:26px auto 0; padding:0 20px; }
+.cp-kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-bottom:22px; }
+.cp-kpi { padding:20px 22px; display:flex; align-items:center; gap:16px; text-decoration:none; color:inherit; }
+.cp-kpi .icon-tile { width:48px; height:48px; }
+.cp-kpi small { display:block; font-size:11.5px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:#8a8575; }
+.cp-kpi strong { display:block; font-size:24px; font-weight:800; color:var(--teal-dark); line-height:1.2; }
+.cp-kpi span.sub { display:block; font-size:12.5px; color:var(--muted); }
+.cp-tools { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:18px; }
+.cp-search { position:relative; flex:1; min-width:220px; }
+.cp-search svg { position:absolute; left:16px; top:50%; transform:translateY(-50%); width:18px; height:18px; fill:none; stroke:var(--teal-dark); stroke-width:1.8; stroke-linecap:round; opacity:.5; pointer-events:none; }
+.cp-search input { width:100%; height:46px; background:var(--bg-input); border:1.5px solid var(--line); border-radius:23px; padding:0 18px 0 44px; font:inherit; font-size:14.5px; outline:none; transition:border-color .2s, box-shadow .2s, background .2s; }
+.cp-search input:focus { background:#fff; border-color:var(--gold); box-shadow:0 0 0 4px rgba(182,159,84,.22); }
+.cp-tabs { display:flex; gap:8px; flex-wrap:wrap; }
+.cp-tabs .tab b { display:inline-block; margin-left:6px; min-width:20px; padding:0 6px; border-radius:10px; background:rgba(182,159,84,.25); color:var(--teal-dark); font-size:11.5px; line-height:20px; }
+.cp-tabs .tab.active b { background:rgba(255,255,255,.2); color:#fff; }
+.cp-sel { height:42px; border-radius:21px; border:1.5px solid var(--line); background:var(--bg-input); padding:0 14px; font:inherit; font-size:13px; font-weight:700; color:var(--teal-dark); cursor:pointer; outline:none; }
+.cp-sel:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(182,159,84,.22); }
+.cp-empty { max-width:520px; margin:30px auto; text-align:center; padding:40px 34px; }
+.cp-empty .icon-tile { margin:0 auto 16px; width:64px; height:64px; border-radius:20px; }
+.cp-empty h2 { font-size:22px; color:var(--teal-dark); font-weight:800; margin-bottom:8px; }
+.cp-empty p { color:var(--muted); margin-bottom:20px; }
+.cp-item { padding:22px 24px; margin-bottom:16px; display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center; }
+.cp-item .left { display:flex; align-items:center; gap:18px; min-width:0; }
+.cp-item .car-name { display:block; font-size:19px; font-weight:800; color:var(--teal-dark); }
+.cp-item .rental-dates { display:block; font-size:13.5px; color:var(--muted); margin:2px 0 8px; }
+.cp-item .right { text-align:right; }
+.cp-item .actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; margin-top:10px; }
+.cp-prog { height:8px; border-radius:6px; background:#e7e2d0; overflow:hidden; margin-top:10px; max-width:360px; }
+.cp-prog span { display:block; height:100%; background:linear-gradient(90deg,var(--gold),var(--cyan)); border-radius:6px; }
+.cp-meta { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.cp-badge { min-width:20px; height:20px; padding:0 6px; border-radius:10px; background:var(--gold); color:var(--teal-dark); font-size:11.5px; font-weight:800; display:inline-flex; align-items:center; justify-content:center; margin-left:6px; }
+.cp-banner { display:flex; align-items:center; gap:16px; padding:18px 22px; margin-bottom:20px; border-radius:20px; color:#fff; background:linear-gradient(120deg,#062e38,#0b4455); box-shadow:var(--shadow-md); flex-wrap:wrap; }
+.cp-banner .icon-tile { background:rgba(255,255,255,.12); } .cp-banner .icon-tile svg { stroke:var(--gold-light); }
+.cp-banner b { display:block; font-size:16px; } .cp-banner span { font-size:13.5px; opacity:.85; }
+.cp-banner .btn { margin-left:auto; }
+.cp-help { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:26px; }
+.cp-help a { display:flex; gap:14px; align-items:center; padding:18px; text-decoration:none; color:var(--teal-dark); font-weight:800; font-size:14.5px; }
+.cp-help small { display:block; font-weight:500; color:var(--muted); font-size:12.5px; }
+.cp-grid2 { display:grid; grid-template-columns:1.3fr 1fr; gap:20px; align-items:start; margin-bottom:6px; }
+.cp-card { padding:24px 26px; }
+.cp-card h2 { font-size:17px; font-weight:800; color:var(--teal-dark); margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+.cp-card h2 a { font-size:13px; font-weight:700; color:var(--cyan); text-decoration:none; }
+.cp-act { list-style:none; }
+.cp-act li { display:flex; gap:12px; align-items:flex-start; padding:11px 0; border-bottom:1px solid #f0ead9; font-size:14px; }
+.cp-act li:last-child { border-bottom:none; }
+.cp-act .dot { width:10px; height:10px; border-radius:50%; background:var(--gold); margin-top:6px; flex-shrink:0; }
+.cp-act small { display:block; color:var(--muted); font-size:12.5px; }
+.cp-act a { color:var(--teal-dark); font-weight:700; text-decoration:none; }
+.cp-act a:hover { text-decoration:underline; }
+.cp-next .car { font-size:22px; font-weight:800; color:var(--teal-dark); line-height:1.2; }
+.cp-next .when { margin:6px 0 14px; color:var(--muted); font-size:14px; }
+.cp-section-title { font-size:13px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:34px 4px 0; max-width:1200px; margin-left:auto; margin-right:auto; padding:0 20px; }
+@media (max-width:1000px) { .cp-kpis { grid-template-columns:repeat(2,1fr); } .cp-grid2 { grid-template-columns:1fr; } }
+@media (max-width:640px) { .cp-kpis { grid-template-columns:1fr; } .cp-item { grid-template-columns:1fr; } .cp-item .right { text-align:left; } .cp-item .actions { justify-content:flex-start; } }
+
+.summary { background:var(--bg-input); border:1px solid var(--card-line); border-radius:18px; padding:6px 18px; margin:6px 0 18px; }
+.summary div { display:flex; justify-content:space-between; gap:14px; padding:11px 0; border-bottom:1px dashed var(--line); font-size:14px; }
+.summary div:last-child { border-bottom:none; }
+.summary span.k { color:var(--muted); font-weight:600; }
+.summary b { color:var(--teal-dark); font-weight:800; text-align:right; }
+.summary .total b { font-size:18px; }
+.dlg-backdrop { position:fixed; inset:0; z-index:2500; display:flex; align-items:center; justify-content:center; padding:20px; background:rgba(3,16,20,.7); backdrop-filter:blur(4px); opacity:0; transition:opacity .25s; }
+.dlg-backdrop.open { opacity:1; }
+.dlg { position:relative; width:100%; max-width:500px; max-height:92vh; overflow-y:auto; background:#fff; border-radius:26px; padding:30px 32px 26px; box-shadow:0 30px 80px rgba(0,0,0,.5); transform:translateY(22px) scale(.96); transition:transform .3s cubic-bezier(.2,.8,.2,1); }
+.dlg-backdrop.open .dlg { transform:none; }
+.dlg::before { content:''; position:absolute; left:0; right:0; top:0; height:5px; background:linear-gradient(90deg,var(--gold),var(--gold-light) 55%,var(--cyan)); }
+.dlg h2 { font-size:22px; font-weight:800; color:var(--teal-dark); margin-bottom:14px; padding-right:34px; }
+.dlg-x { position:absolute; top:16px; right:16px; width:36px; height:36px; border:none; border-radius:50%; background:var(--bg-input); font-size:22px; line-height:1; cursor:pointer; color:var(--teal-dark); }
+.dlg-actions { display:flex; gap:10px; justify-content:flex-end; margin-top:18px; flex-wrap:wrap; }
 </style>
 </head>
 <body>
@@ -318,23 +389,25 @@ html.js .reveal.in { opacity:1; transform:none; }
         <a href="cadastro.html" class="btn btn-outline">Criar conta</a>
       </div>
     </section>
-    <div class="settings-container" data-auth="in" style="max-width:900px">
-      <div class="hist-tabs" role="tablist">
-        <button class="tab active" data-f="all" role="tab">Todas</button>
-        <button class="tab" data-f="ok" role="tab">Concluídas</button>
-        <button class="tab" data-f="bad" role="tab">Canceladas</button>
+    <div class="cp-wrap" data-auth="in">
+      <div class="cp-kpis">
+        <div class="card hover cp-kpi"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div><div><small>Locações concluídas</small><strong id="kDone">0</strong><span class="sub" id="kDones"></span></div></div>
+        <div class="card hover cp-kpi"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="12" rx="3"/><circle cx="12" cy="12" r="2.5"/><path d="M7 9v.1M17 15v.1"/></svg></div><div><small>Total investido</small><strong id="kSum">R$ 0</strong><span class="sub" id="kSums">em locações concluídas</span></div></div>
+        <div class="card hover cp-kpi"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><div><small>Dias alugados</small><strong id="kDays">0</strong><span class="sub" id="kDayss">somando todas as locações</span></div></div>
+        <div class="card hover cp-kpi"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div><div><small>Veículo favorito</small><strong id="kFav">—</strong><span class="sub" id="kFavs">mais alugado</span></div></div>
       </div>
-      <article class="card hover history-card reveal" data-status="ok" style="--d:0.00s">
-        <div class="left"><div class="icon-tile"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16l1.4-5a2 2 0 0 1 1.9-1.5h7.4a2 2 0 0 1 1.9 1.5L19 16"/><rect x="3" y="16" width="18" height="4" rx="1.5"/><path d="M6 20v1M18 20v1"/></svg></div>
-          <div><span class="car-name">Porsche 911 Carrera</span><span class="rental-dates">12/08/2026 - 15/08/2026 • São Paulo, SP</span><span class="chip chip-ok">Concluída</span></div></div>
-        <div class="rental-price">R$ 8.500,00</div>
-      </article>
-      <article class="card hover history-card reveal" data-status="bad" style="--d:0.08s">
-        <div class="left"><div class="icon-tile"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16l1.4-5a2 2 0 0 1 1.9-1.5h7.4a2 2 0 0 1 1.9 1.5L19 16"/><rect x="3" y="16" width="18" height="4" rx="1.5"/><path d="M6 20v1M18 20v1"/></svg></div>
-          <div><span class="car-name">Range Rover Velar</span><span class="rental-dates">05/06/2026 - 08/06/2026 • Rio de Janeiro, RJ</span><span class="chip chip-bad">Cancelada</span></div></div>
-        <div class="rental-price">R$ 4.200,00</div>
-      </article>
-      <div class="card empty-card" id="histEmpty" style="display:none;margin-top:10px"><div class="icon-tile"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7L4 8.5"/><path d="M4 4v4.5h4.5M12 8v4l3 2"/></svg></div><h2>Nada por aqui</h2><p>Nenhuma locação encontrada neste filtro.</p></div>
+      <div class="cp-tools">
+        <label class="cp-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input type="search" id="q" placeholder="Buscar por veículo, código ou cidade" aria-label="Buscar no histórico"></label>
+        <select class="cp-sel" id="ord" aria-label="Ordenar"><option value="new">Mais recentes</option><option value="old">Mais antigas</option><option value="high">Maior valor</option><option value="low">Menor valor</option></select>
+      </div>
+      <div class="cp-tabs" id="tabs" role="tablist" style="margin-bottom:18px"></div>
+      <div id="hList"></div>
+      <div class="card cp-empty" id="histEmpty" style="display:none"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7L4 8.5"/><path d="M4 4v4.5h4.5M12 8v4l3 2"/></svg></div><h2>Nada por aqui</h2><p>Nenhuma locação encontrada neste filtro.</p><button type="button" class="btn btn-outline btn-sm" id="clr">Limpar filtros</button></div>
+      <div class="cp-help">
+        <a class="card hover" href="reservas.html"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><span>Reservas ativas<small>Acompanhe o que está em andamento</small></span></a>
+        <a class="card hover" href="veiculos.html"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16l1.4-5a2 2 0 0 1 1.9-1.5h7.4a2 2 0 0 1 1.9 1.5L19 16"/><rect x="3" y="16" width="18" height="4" rx="1.5"/><path d="M6 20v1M18 20v1"/></svg></div><span>Nova locação<small>Conheça a frota exclusiva</small></span></a>
+        <a class="card hover" href="suporte.html"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17v.1"/></svg></div><span>Precisa de ajuda?<small>Fale com nosso suporte</small></span></a>
+      </div>
     </div>
   </main>
 
@@ -604,25 +677,68 @@ var ROLE = window.dominusRole(), MGR = ROLE === 'gerente' || ROLE === 'admin';
 function findUser(login) { var l = String(login || '').trim().toLowerCase(); return DB.get('usr').filter(function (u) { return u.email.toLowerCase() === l || (u.usuario && u.usuario.toLowerCase() === l); })[0]; }
 function me() { var u = window.dominusUser() || {}; return { nome: u.name || 'João Silva Oliveira', email: u.email || 'joao.silva@email.com' }; }
 
-  (function () {
-    var u = me(), tabs = document.querySelector('.hist-tabs'), CAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16l1.4-5a2 2 0 0 1 1.9-1.5h7.4a2 2 0 0 1 1.9 1.5L19 16"/><rect x="3" y="16" width="18" height="4" rx="1.5"/><path d="M6 20v1M18 20v1"/></svg>';
-    var mine = DB.get('res').filter(function (r) { return r.email.toLowerCase() === u.email.toLowerCase() && (r.status === 'cancelada' || r.status === 'concluida') && !(r.id === 'DOM-1001'); });
-    mine.reverse().forEach(function (r) {
-      var ok = r.status === 'concluida', a = document.createElement('article'); a.className = 'card hover history-card in'; a.setAttribute('data-status', ok ? 'ok' : 'bad');
-      a.innerHTML = '<div class="left"><div class="icon-tile">' + CAR + '</div><div><span class="car-name">' + esc(r.car) + '</span><span class="rental-dates">' + esc(r.ret) + ' - ' + esc(r.dev) + ' - ' + esc(r.id) + '</span><span class="chip ' + (ok ? 'chip-ok' : 'chip-bad') + '">' + (ok ? 'Concluída' : 'Cancelada') + '</span></div></div><div class="rental-price">' + brl(r.total) + '</div>';
-      tabs.parentNode.insertBefore(a, tabs.nextSibling);
-    });
-  })();
-
-  var tabs = [].slice.call(document.querySelectorAll('.tab')), cards = [].slice.call(document.querySelectorAll('.history-card')), empty = document.getElementById('histEmpty');
-  tabs.forEach(function (t) {
-    t.addEventListener('click', function () {
-      tabs.forEach(function (x) { x.classList.toggle('active', x === t); x.setAttribute('aria-selected', x === t ? 'true' : 'false'); });
-      var f = t.getAttribute('data-f'), n = 0;
-      cards.forEach(function (c) { var show = f === 'all' || c.getAttribute('data-status') === f; c.style.display = show ? '' : 'none'; if (show) { n++; c.classList.add('in'); } });
-      empty.style.display = n ? 'none' : '';
-    });
+  
+  var u = me(), flt = 'all', qtxt = '', ord = 'new';
+  var CAR = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16l1.4-5a2 2 0 0 1 1.9-1.5h7.4a2 2 0 0 1 1.9 1.5L19 16"/><rect x="3" y="16" width="18" height="4" rx="1.5"/><path d="M6 20v1M18 20v1"/></svg>';
+  function span(ret, dev) { var a = parseBR(ret), b = parseBR(dev); return a && b ? Math.max(1, Math.round((b - a) / 86400000)) : 1; }
+  function money(n) { return 'R$ ' + Number(n).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
+  var items = [
+    { id: 'HIST-0002', car: 'Porsche 911 Carrera', ret: '12/08/2026', dev: '15/08/2026', local: 'São Paulo, SP', status: 'concluida', total: 8500, pay: '' },
+    { id: 'HIST-0001', car: 'Range Rover Velar', ret: '05/06/2026', dev: '08/06/2026', local: 'Rio de Janeiro, RJ', status: 'cancelada', total: 4200, pay: '' }
+  ];
+  DB.get('res').filter(function (r) { return r.email.toLowerCase() === u.email.toLowerCase() && (r.status === 'cancelada' || r.status === 'concluida') && r.id !== 'DOM-1001'; }).forEach(function (r) {
+    items.push({ id: r.id, car: r.car, ret: r.ret, dev: r.dev, local: '', status: r.status, total: r.total, pay: r.pay, days: r.days });
   });
-})();</script>
+  items.forEach(function (i) { i.days = i.days || span(i.ret, i.dev); i.ts = (parseBR(i.ret) || 0).valueOf(); });
+
+  function stats() {
+    var ok = items.filter(function (i) { return i.status === 'concluida'; });
+    document.getElementById('kDone').textContent = ok.length;
+    document.getElementById('kSum').textContent = money(ok.reduce(function (s, i) { return s + i.total; }, 0));
+    document.getElementById('kDays').textContent = ok.reduce(function (s, i) { return s + i.days; }, 0);
+    var cnt = {}; ok.forEach(function (i) { cnt[i.car] = (cnt[i.car] || 0) + 1; });
+    var top = Object.keys(cnt).sort(function (a, b) { return cnt[b] - cnt[a]; })[0];
+    document.getElementById('kFav').textContent = top || '—'; document.getElementById('kFav').style.fontSize = '18px';
+    document.getElementById('kFavs').textContent = top ? cnt[top] + (cnt[top] === 1 ? ' locação' : ' locações') : 'ainda sem locações';
+  }
+  function visible() {
+    var q = qtxt.trim().toLowerCase();
+    var r = items.filter(function (i) {
+      if (flt === 'ok' && i.status !== 'concluida') return false; if (flt === 'bad' && i.status !== 'cancelada') return false;
+      return !q || (i.car + ' ' + i.id + ' ' + i.local).toLowerCase().indexOf(q) >= 0;
+    });
+    r.sort(function (a, b) { return ord === 'old' ? a.ts - b.ts : ord === 'high' ? b.total - a.total : ord === 'low' ? a.total - b.total : b.ts - a.ts; });
+    return r;
+  }
+  function render() {
+    var c = { all: items.length, ok: items.filter(function (i) { return i.status === 'concluida'; }).length, bad: items.filter(function (i) { return i.status === 'cancelada'; }).length };
+    var T = [['all', 'Todas'], ['ok', 'Concluídas'], ['bad', 'Canceladas']];
+    document.getElementById('tabs').innerHTML = T.map(function (x) { return '<button type="button" class="tab' + (flt === x[0] ? ' active' : '') + '" data-f="' + x[0] + '" role="tab" aria-selected="' + (flt === x[0]) + '">' + x[1] + '<b>' + c[x[0]] + '</b></button>'; }).join('');
+    var list = visible();
+    document.getElementById('histEmpty').style.display = list.length ? 'none' : '';
+    document.getElementById('hList').innerHTML = list.map(function (i) {
+      var ok = i.status === 'concluida';
+      return '<article class="card hover cp-item"><div class="left"><div class="icon-tile">' + CAR + '</div><div><span class="car-name">' + esc(i.car) + '</span><span class="rental-dates">' + esc(i.ret) + ' - ' + esc(i.dev) + ' · ' + i.days + (i.days === 1 ? ' diária' : ' diárias') + (i.local ? ' · ' + esc(i.local) : '') + '</span><div class="cp-meta"><span class="chip ' + (ok ? 'chip-ok' : 'chip-bad') + '">' + (ok ? 'Concluída' : 'Cancelada') + '</span><span class="chip chip-gray">' + esc(i.id) + '</span></div></div></div>' +
+        '<div class="right"><div class="rental-price" style="' + (ok ? '' : 'text-decoration:line-through;opacity:.55') + '">' + money(i.total) + '</div><div class="actions"><button type="button" class="btn btn-sm btn-outline" data-a="det" data-id="' + esc(i.id) + '">Detalhes</button>' + (ok ? '<button type="button" class="btn btn-sm btn-outline" data-a="rec" data-id="' + esc(i.id) + '">Comprovante</button>' : '') + '<a class="btn btn-sm btn-gold" href="veiculos.html">Reservar novamente</a></div></div></article>';
+    }).join('');
+  }
+  function find(id) { return items.filter(function (i) { return i.id === id; })[0]; }
+  function receipt(i) {
+    var h = '<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><title>Comprovante ' + esc(i.id) + '</title><style>body{font-family:Arial,sans-serif;max-width:560px;margin:40px auto;color:#1a1a1a}h1{color:#062e38;border-bottom:3px solid #b69f54;padding-bottom:10px}table{width:100%;border-collapse:collapse}td{padding:10px 0;border-bottom:1px dashed #ccc}td:last-child{text-align:right;font-weight:bold}.t td{font-size:18px;border:none}</style></head><body><h1>Dominus Auto — Comprovante</h1><p>Cliente: ' + esc(u.nome) + '<br>E-mail: ' + esc(u.email) + '</p><table><tr><td>Código</td><td>' + esc(i.id) + '</td></tr><tr><td>Veículo</td><td>' + esc(i.car) + '</td></tr><tr><td>Retirada</td><td>' + esc(i.ret) + '</td></tr><tr><td>Devolução</td><td>' + esc(i.dev) + '</td></tr><tr><td>Diárias</td><td>' + i.days + '</td></tr>' + (i.pay ? '<tr><td>Pagamento</td><td>' + esc(PAY[i.pay] || i.pay) + '</td></tr>' : '') + '<tr class="t"><td>Total</td><td>' + money(i.total) + '</td></tr></table><p style="color:#666;font-size:12px;margin-top:30px">Emitido em ' + todayBR() + '.</p></body></html>';
+    var l = document.createElement('a'); l.href = URL.createObjectURL(new Blob([h], { type: 'text/html' })); l.download = 'comprovante-' + i.id + '.html'; document.body.appendChild(l); l.click(); l.remove();
+  }
+  document.getElementById('tabs').addEventListener('click', function (e) { var b = e.target.closest('.tab'); if (!b) return; flt = b.getAttribute('data-f'); render(); });
+  document.getElementById('q').addEventListener('input', function (e) { qtxt = e.target.value; render(); });
+  document.getElementById('ord').addEventListener('change', function (e) { ord = e.target.value; render(); });
+  document.getElementById('clr').addEventListener('click', function () { flt = 'all'; qtxt = ''; document.getElementById('q').value = ''; render(); });
+  document.getElementById('hList').addEventListener('click', function (e) {
+    var b = e.target.closest('button[data-a]'); if (!b) return; var i = find(b.getAttribute('data-id')); if (!i) return;
+    if (b.getAttribute('data-a') === 'rec') { receipt(i); window.dominusToast('Comprovante baixado'); return; }
+    dlg({ title: 'Locação ' + i.id, body: '<div class="summary"><div><span class="k">Veículo</span><b>' + esc(i.car) + '</b></div><div><span class="k">Retirada</span><b>' + esc(i.ret) + '</b></div><div><span class="k">Devolução</span><b>' + esc(i.dev) + '</b></div><div><span class="k">Diárias</span><b>' + i.days + '</b></div>' + (i.local ? '<div><span class="k">Local</span><b>' + esc(i.local) + '</b></div>' : '') + (i.pay ? '<div><span class="k">Pagamento</span><b>' + esc(PAY[i.pay] || i.pay) + '</b></div>' : '') + '<div><span class="k">Status</span><b>' + (i.status === 'concluida' ? 'Concluída' : 'Cancelada') + '</b></div><div class="total"><span class="k">Total</span><b>' + money(i.total) + '</b></div></div>' });
+  });
+  stats(); render();
+
+})();
+</script>
 </body>
 </html>

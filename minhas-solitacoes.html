@@ -408,6 +408,62 @@ html.js .reveal.in { opacity:1; transform:none; }
 .menu-item small { display:block; font-weight:500; color:var(--muted); font-size:13px; }
 .menu-item .icon-tile { transition:background .25s; }
 .menu-item .icon-tile svg { transition:stroke .25s; }
+
+/* ---------- Painel do cliente (completo) ---------- */
+.cp-wrap { max-width:1200px; margin:26px auto 0; padding:0 20px; }
+.cp-kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; margin-bottom:22px; }
+.cp-kpi { padding:20px 22px; display:flex; align-items:center; gap:16px; text-decoration:none; color:inherit; }
+.cp-kpi .icon-tile { width:48px; height:48px; }
+.cp-kpi small { display:block; font-size:11.5px; font-weight:800; letter-spacing:1.4px; text-transform:uppercase; color:#8a8575; }
+.cp-kpi strong { display:block; font-size:24px; font-weight:800; color:var(--teal-dark); line-height:1.2; }
+.cp-kpi span.sub { display:block; font-size:12.5px; color:var(--muted); }
+.cp-tools { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:18px; }
+.cp-search { position:relative; flex:1; min-width:220px; }
+.cp-search svg { position:absolute; left:16px; top:50%; transform:translateY(-50%); width:18px; height:18px; fill:none; stroke:var(--teal-dark); stroke-width:1.8; stroke-linecap:round; opacity:.5; pointer-events:none; }
+.cp-search input { width:100%; height:46px; background:var(--bg-input); border:1.5px solid var(--line); border-radius:23px; padding:0 18px 0 44px; font:inherit; font-size:14.5px; outline:none; transition:border-color .2s, box-shadow .2s, background .2s; }
+.cp-search input:focus { background:#fff; border-color:var(--gold); box-shadow:0 0 0 4px rgba(182,159,84,.22); }
+.cp-tabs { display:flex; gap:8px; flex-wrap:wrap; }
+.cp-tabs .tab b { display:inline-block; margin-left:6px; min-width:20px; padding:0 6px; border-radius:10px; background:rgba(182,159,84,.25); color:var(--teal-dark); font-size:11.5px; line-height:20px; }
+.cp-tabs .tab.active b { background:rgba(255,255,255,.2); color:#fff; }
+.cp-sel { height:42px; border-radius:21px; border:1.5px solid var(--line); background:var(--bg-input); padding:0 14px; font:inherit; font-size:13px; font-weight:700; color:var(--teal-dark); cursor:pointer; outline:none; }
+.cp-sel:focus { border-color:var(--gold); box-shadow:0 0 0 3px rgba(182,159,84,.22); }
+.cp-empty { max-width:520px; margin:30px auto; text-align:center; padding:40px 34px; }
+.cp-empty .icon-tile { margin:0 auto 16px; width:64px; height:64px; border-radius:20px; }
+.cp-empty h2 { font-size:22px; color:var(--teal-dark); font-weight:800; margin-bottom:8px; }
+.cp-empty p { color:var(--muted); margin-bottom:20px; }
+.cp-item { padding:22px 24px; margin-bottom:16px; display:grid; grid-template-columns:1fr auto; gap:18px; align-items:center; }
+.cp-item .left { display:flex; align-items:center; gap:18px; min-width:0; }
+.cp-item .car-name { display:block; font-size:19px; font-weight:800; color:var(--teal-dark); }
+.cp-item .rental-dates { display:block; font-size:13.5px; color:var(--muted); margin:2px 0 8px; }
+.cp-item .right { text-align:right; }
+.cp-item .actions { display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; margin-top:10px; }
+.cp-prog { height:8px; border-radius:6px; background:#e7e2d0; overflow:hidden; margin-top:10px; max-width:360px; }
+.cp-prog span { display:block; height:100%; background:linear-gradient(90deg,var(--gold),var(--cyan)); border-radius:6px; }
+.cp-meta { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+.cp-badge { min-width:20px; height:20px; padding:0 6px; border-radius:10px; background:var(--gold); color:var(--teal-dark); font-size:11.5px; font-weight:800; display:inline-flex; align-items:center; justify-content:center; margin-left:6px; }
+.cp-banner { display:flex; align-items:center; gap:16px; padding:18px 22px; margin-bottom:20px; border-radius:20px; color:#fff; background:linear-gradient(120deg,#062e38,#0b4455); box-shadow:var(--shadow-md); flex-wrap:wrap; }
+.cp-banner .icon-tile { background:rgba(255,255,255,.12); } .cp-banner .icon-tile svg { stroke:var(--gold-light); }
+.cp-banner b { display:block; font-size:16px; } .cp-banner span { font-size:13.5px; opacity:.85; }
+.cp-banner .btn { margin-left:auto; }
+.cp-help { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin-top:26px; }
+.cp-help a { display:flex; gap:14px; align-items:center; padding:18px; text-decoration:none; color:var(--teal-dark); font-weight:800; font-size:14.5px; }
+.cp-help small { display:block; font-weight:500; color:var(--muted); font-size:12.5px; }
+.cp-grid2 { display:grid; grid-template-columns:1.3fr 1fr; gap:20px; align-items:start; margin-bottom:6px; }
+.cp-card { padding:24px 26px; }
+.cp-card h2 { font-size:17px; font-weight:800; color:var(--teal-dark); margin-bottom:14px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+.cp-card h2 a { font-size:13px; font-weight:700; color:var(--cyan); text-decoration:none; }
+.cp-act { list-style:none; }
+.cp-act li { display:flex; gap:12px; align-items:flex-start; padding:11px 0; border-bottom:1px solid #f0ead9; font-size:14px; }
+.cp-act li:last-child { border-bottom:none; }
+.cp-act .dot { width:10px; height:10px; border-radius:50%; background:var(--gold); margin-top:6px; flex-shrink:0; }
+.cp-act small { display:block; color:var(--muted); font-size:12.5px; }
+.cp-act a { color:var(--teal-dark); font-weight:700; text-decoration:none; }
+.cp-act a:hover { text-decoration:underline; }
+.cp-next .car { font-size:22px; font-weight:800; color:var(--teal-dark); line-height:1.2; }
+.cp-next .when { margin:6px 0 14px; color:var(--muted); font-size:14px; }
+.cp-section-title { font-size:13px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin:34px 4px 0; max-width:1200px; margin-left:auto; margin-right:auto; padding:0 20px; }
+@media (max-width:1000px) { .cp-kpis { grid-template-columns:repeat(2,1fr); } .cp-grid2 { grid-template-columns:1fr; } }
+@media (max-width:640px) { .cp-kpis { grid-template-columns:1fr; } .cp-item { grid-template-columns:1fr; } .cp-item .right { text-align:left; } .cp-item .actions { justify-content:flex-start; } }
 </style>
 </head>
 <body>
@@ -480,10 +536,27 @@ html.js .reveal.in { opacity:1; transform:none; }
         <a href="cadastro.html" class="btn btn-outline">Criar conta</a>
       </div>
     </section>
-    <div class="admin-wrap" data-auth="in">
-      <div class="toolbar"><span style="flex:1;color:var(--muted);font-size:14px">Acompanhe os pedidos que você enviou ao Concierge VIP.</span><a class="btn btn-gold btn-sm" href="concierge.html">+ Nova solicitação</a></div>
+    <div class="cp-wrap" data-auth="in">
+      <div class="cp-kpis">
+        <div class="card hover cp-kpi"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17v.1"/></svg></div><div><small>Total de pedidos</small><strong id="kTotal">0</strong><span class="sub" id="kTotals"></span></div></div>
+        <div class="card hover cp-kpi"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><small>Abertos</small><strong id="kOpen">0</strong><span class="sub" id="kOpens">aguardando atendimento</span></div></div>
+        <div class="card hover cp-kpi"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19c0 1.5-2 2.5-5 2.5"/></svg></div><div><small>Em atendimento</small><strong id="kWork">0</strong><span class="sub" id="kWorks">com a nossa equipe</span></div></div>
+        <div class="card hover cp-kpi"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div><div><small>Resolvidos</small><strong id="kDone">0</strong><span class="sub" id="kDones">concluídos</span></div></div>
+      </div>
+      <div class="cp-tools">
+        <label class="cp-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg><input type="search" id="q" placeholder="Buscar por assunto, protocolo ou mensagem" aria-label="Buscar solicitações"></label>
+        <select class="cp-sel" id="ord" aria-label="Ordenar"><option value="new">Mais recentes</option><option value="old">Mais antigas</option><option value="prio">Maior prioridade</option></select>
+        <a class="btn btn-gold btn-sm" href="concierge.html">+ Nova solicitação</a>
+      </div>
+      <div class="cp-tabs" id="tabs" role="tablist" style="margin-bottom:18px"></div>
       <div id="msWrap" class="split"><div class="ticket-list" id="list"></div><div class="card detail" id="detail"></div></div>
-      <section class="card empty-card" id="msEmpty" style="display:none"><div class="icon-tile"><svg class="" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19c0 1.5-2 2.5-5 2.5"/></svg></div><h2>Nenhuma solicitação</h2><p>Você ainda não enviou pedidos ao Concierge VIP.</p><a class="btn btn-gold" href="concierge.html">Falar com o Concierge <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></section>
+      <section class="card cp-empty" id="msNone" style="display:none"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></div><h2>Nenhum resultado</h2><p>Nenhuma solicitação corresponde à busca ou ao filtro escolhido.</p><button type="button" class="btn btn-outline btn-sm" id="clr">Limpar filtros</button></section>
+      <section class="card cp-empty" id="msEmpty" style="display:none"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/></svg></div><h2>Nenhuma solicitação</h2><p>Você ainda não enviou pedidos ao Concierge VIP.</p><a class="btn btn-gold" href="concierge.html">Falar com o Concierge</a></section>
+      <div class="cp-help">
+        <a class="card hover" href="mensagens.html"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></div><span>Mensagens<small>Converse sobre uma reserva</small></span></a>
+        <a class="card hover" href="reservas.html"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div><span>Minhas reservas<small>Acompanhe suas locações</small></span></a>
+        <a class="card hover" href="suporte.html"><div class="icon-tile"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 .9-1 1.7M12 17v.1"/></svg></div><span>Central de ajuda<small>Perguntas frequentes</small></span></a>
+      </div>
     </div>
   </main>
 
@@ -755,25 +828,89 @@ function findUser(login) { var l = String(login || '').trim().toLowerCase(); ret
 function me() { var u = window.dominusUser() || {}; return { nome: u.name || 'João Silva Oliveira', email: u.email || 'joao.silva@email.com' }; }
 
 
-  var sel = qp('t'), u = me(), TS = { aberto: ['Aberto', 'chip-warn'], atendimento: ['Em atendimento', 'chip-blue'], resolvido: ['Resolvido', 'chip-ok'] };
+  
+  var sel = qp('t'), u = me(), flt = 'all', qtxt = '', ord = 'new';
+  var TS = { aberto: ['Aberto', 'chip-warn'], atendimento: ['Em atendimento', 'chip-blue'], resolvido: ['Resolvido', 'chip-ok'] };
+  var PR = { alta: ['Prioridade alta', 'chip-bad'], media: ['Prioridade média', 'chip-gold'], baixa: ['Prioridade baixa', 'chip-gray'] };
+  var PRW = { alta: 3, media: 2, baixa: 1 };
+  var QUICK = ['Obrigado!', 'Pode me atualizar sobre o andamento?', 'Preciso de uma resposta com urgência.', 'Consegue ajustar a data?'];
   function mine() { return DB.get('tk').filter(function (t) { return t.email.toLowerCase() === u.email.toLowerCase(); }); }
-  function render() {
-    var ts = mine(); document.getElementById('msWrap').style.display = ts.length ? '' : 'none'; document.getElementById('msEmpty').style.display = ts.length ? 'none' : '';
-    if (!ts.length) return; if (!sel || !ts.some(function (t) { return t.id === sel; })) sel = ts[0].id;
-    document.getElementById('list').innerHTML = ts.map(function (t) { return '<button type="button" class="ticket' + (t.id === sel ? ' active' : '') + '" data-id="' + t.id + '"><div class="meta"><span>' + esc(t.id) + ' - ' + esc(t.data) + '</span>' + chipOf(TS, t.status) + '</div><b>' + esc(t.assunto) + '</b><div class="meta"><span>' + t.msgs.length + (t.msgs.length === 1 ? ' mensagem' : ' mensagens') + '</span></div></button>'; }).join('');
-    var t = ts.filter(function (x) { return x.id === sel; })[0];
-    document.getElementById('detail').innerHTML = '<div class="head-row"><div><h2>' + esc(t.assunto) + '</h2><span style="color:var(--muted);font-size:13.5px">Protocolo ' + esc(t.id) + ' - ' + esc(t.data) + '</span></div>' + chipOf(TS, t.status) + '</div>' +
-      '<div class="thread">' + t.msgs.map(function (m) { return '<div class="msg' + (m.de === 'equipe' ? ' team' : '') + '"><small>' + (m.de === 'equipe' ? 'Equipe Dominus' : 'Você') + ' - ' + esc(m.data) + '</small>' + esc(m.texto) + '</div>'; }).join('') + '</div>' +
-      '<div class="field"><label class="field-label" for="rp">Enviar nova mensagem</label><textarea id="rp" class="input-rounded" placeholder="Escreva sua mensagem"></textarea><p class="field-error" role="alert"></p></div><button type="button" class="btn btn-dark btn-sm" id="rpBtn">Enviar mensagem</button>';
+  function num(t) { return parseInt(String(t.id).replace(/\D/g, ''), 10) || 0; }
+  function counts(ts) { return { all: ts.length, aberto: ts.filter(function (t) { return t.status === 'aberto'; }).length, atendimento: ts.filter(function (t) { return t.status === 'atendimento'; }).length, resolvido: ts.filter(function (t) { return t.status === 'resolvido'; }).length }; }
+  function visible(ts) {
+    var q = qtxt.trim().toLowerCase();
+    var r = ts.filter(function (t) {
+      if (flt !== 'all' && t.status !== flt) return false;
+      if (!q) return true;
+      return (t.id + ' ' + t.assunto + ' ' + t.msgs.map(function (m) { return m.texto; }).join(' ')).toLowerCase().indexOf(q) >= 0;
+    });
+    r.sort(function (a, b) { return ord === 'old' ? num(a) - num(b) : ord === 'prio' ? (PRW[b.prio] || 0) - (PRW[a.prio] || 0) || num(b) - num(a) : num(b) - num(a); });
+    return r;
   }
-  document.getElementById('list').addEventListener('click', function (e) { var b = e.target.closest('.ticket'); if (b) { sel = b.getAttribute('data-id'); render(); } });
-  document.getElementById('detail').addEventListener('click', function (e) {
-    if (!e.target.closest('#rpBtn')) return; var r = document.getElementById('rp'), f = r.closest('.field');
-    if (r.value.trim().length < 3) { f.classList.add('invalid'); f.querySelector('.field-error').textContent = 'Escreva a mensagem.'; r.focus(); return; }
-    var all = DB.get('tk'), t = all.filter(function (x) { return x.id === sel; })[0]; t.msgs.push({ de: 'cliente', texto: r.value.trim(), data: todayBR() }); if (t.status === 'resolvido') t.status = 'aberto'; DB.set('tk', all); render(); window.dominusToast('Mensagem enviada');
+  function steps(t) {
+    var i = t.status === 'resolvido' ? 2 : t.status === 'atendimento' ? 1 : 0;
+    var L = [['Solicitação enviada', t.data], ['Em atendimento', i >= 1 ? 'Nossa equipe está cuidando do seu pedido' : 'Aguardando a equipe'], ['Resolvida', i === 2 ? 'Pedido concluído' : 'Em breve']];
+    return '<ol class="timeline" style="margin:14px 0 4px">' + L.map(function (x, k) { return '<li class="' + (k < i ? 'done' : k === i ? (i === 2 ? 'done' : 'active') : '') + '"><span class="d">' + (k < i || i === 2 ? '&#10003;' : k + 1) + '</span>' + esc(x[0]) + '<small>' + esc(x[1]) + '</small></li>'; }).join('') + '</ol>';
+  }
+  function renderTabs(c) {
+    var T = [['all', 'Todas'], ['aberto', 'Abertas'], ['atendimento', 'Em atendimento'], ['resolvido', 'Resolvidas']];
+    document.getElementById('tabs').innerHTML = T.map(function (x) { return '<button type="button" class="tab' + (flt === x[0] ? ' active' : '') + '" data-f="' + x[0] + '" role="tab" aria-selected="' + (flt === x[0]) + '">' + x[1] + '<b>' + c[x[0]] + '</b></button>'; }).join('');
+  }
+  function render() {
+    var all = mine(), c = counts(all);
+    document.getElementById('kTotal').textContent = c.all; document.getElementById('kOpen').textContent = c.aberto; document.getElementById('kWork').textContent = c.atendimento; document.getElementById('kDone').textContent = c.resolvido;
+    document.getElementById('msEmpty').style.display = all.length ? 'none' : '';
+    renderTabs(c);
+    var ts = visible(all), has = all.length > 0;
+    document.getElementById('msWrap').style.display = ts.length ? '' : 'none';
+    document.getElementById('msNone').style.display = has && !ts.length ? '' : 'none';
+    document.getElementById('tabs').style.display = has ? '' : 'none';
+    document.querySelector('.cp-tools').style.display = has ? '' : 'none';
+    if (!ts.length) return;
+    if (!sel || !ts.some(function (t) { return t.id === sel; })) sel = ts[0].id;
+    document.getElementById('list').innerHTML = ts.map(function (t) {
+      var last = t.msgs[t.msgs.length - 1], snip = last ? last.texto : '';
+      return '<button type="button" class="ticket' + (t.id === sel ? ' active' : '') + '" data-id="' + esc(t.id) + '"><div class="meta"><span>' + esc(t.id) + ' - ' + esc(t.data) + '</span>' + chipOf(TS, t.status) + '</div><b>' + esc(t.assunto) + '</b><div class="meta"><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:70%">' + esc(snip) + '</span><span>' + t.msgs.length + ' msg</span></div></button>';
+    }).join('');
+    var t = ts.filter(function (x) { return x.id === sel; })[0];
+    var done = t.status === 'resolvido';
+    document.getElementById('detail').innerHTML = '<div class="head-row"><div><h2>' + esc(t.assunto) + '</h2><span style="color:var(--muted);font-size:13.5px">Protocolo ' + esc(t.id) + ' - aberto em ' + esc(t.data) + '</span></div><div class="cp-meta">' + chipOf(TS, t.status) + chipOf(PR, t.prio || 'media') + '</div></div>' +
+      steps(t) +
+      '<div class="thread">' + t.msgs.map(function (m) { var eq = m.de === 'equipe'; return '<div class="msg' + (eq ? ' team' : '') + '"><small>' + (eq ? 'Equipe Dominus' : 'Você') + ' - ' + esc(m.data) + '</small>' + esc(m.texto) + '</div>'; }).join('') + '</div>' +
+      (done ? '<div class="note" style="background:#e6f4ea;border-color:#bfe0c8">Esta solicitação foi marcada como resolvida. Enviar uma nova mensagem a reabre.</div>' : '') +
+      '<div class="quick" style="margin-bottom:10px;display:flex;gap:6px;flex-wrap:wrap">' + QUICK.map(function (q) { return '<button type="button" class="tab" data-q="' + esc(q) + '" style="padding:6px 12px;font-size:12px">' + esc(q) + '</button>'; }).join('') + '</div>' +
+      '<div class="field"><label class="field-label" for="rp">Enviar nova mensagem</label><textarea id="rp" class="input-rounded" maxlength="600" placeholder="Escreva sua mensagem (Ctrl+Enter para enviar)"></textarea><p class="field-error" role="alert"></p></div>' +
+      '<div style="display:flex;gap:10px;flex-wrap:wrap"><button type="button" class="btn btn-dark btn-sm" id="rpBtn">Enviar mensagem</button>' +
+      (done ? '<button type="button" class="btn btn-outline btn-sm" id="reopen">Reabrir solicitação</button>' : '<button type="button" class="btn btn-outline btn-sm" id="resolve">Marcar como resolvida</button>') +
+      '<button type="button" class="btn btn-outline btn-sm" id="copyId">Copiar protocolo</button></div>';
+  }
+  function update(fn) { var all = DB.get('tk'), t = all.filter(function (x) { return x.id === sel; })[0]; if (!t) return; fn(t); DB.set('tk', all); render(); }
+  document.getElementById('tabs').addEventListener('click', function (e) { var b = e.target.closest('.tab'); if (!b) return; flt = b.getAttribute('data-f'); render(); });
+  document.getElementById('q').addEventListener('input', function (e) { qtxt = e.target.value; render(); });
+  document.getElementById('ord').addEventListener('change', function (e) { ord = e.target.value; render(); });
+  document.getElementById('clr').addEventListener('click', function () { flt = 'all'; qtxt = ''; document.getElementById('q').value = ''; render(); });
+  document.getElementById('list').addEventListener('click', function (e) {
+    var b = e.target.closest('.ticket'); if (!b) return; sel = b.getAttribute('data-id'); render();
+    if (window.matchMedia('(max-width:1000px)').matches) document.getElementById('detail').scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
+  function send() {
+    var r = document.getElementById('rp'), f = r.closest('.field');
+    if (r.value.trim().length < 3) { f.classList.add('invalid'); f.querySelector('.field-error').textContent = 'Escreva a mensagem.'; r.focus(); return; }
+    var txt = r.value.trim();
+    update(function (t) { t.msgs.push({ de: 'cliente', texto: txt, data: todayBR() }); if (t.status === 'resolvido') t.status = 'aberto'; });
+    window.dominusToast('Mensagem enviada');
+  }
+  document.getElementById('detail').addEventListener('click', function (e) {
+    var q = e.target.closest('[data-q]'); if (q) { var r = document.getElementById('rp'); r.value = q.getAttribute('data-q'); r.focus(); return; }
+    if (e.target.closest('#rpBtn')) return send();
+    if (e.target.closest('#resolve')) return confirmDlg('Marcar como resolvida', 'Deseja marcar esta solicitação como resolvida?', 'Marcar como resolvida', function () { update(function (t) { t.status = 'resolvido'; t.msgs.push({ de: 'cliente', texto: 'Solicitação marcada como resolvida pelo cliente.', data: todayBR() }); }); window.dominusToast('Solicitação resolvida'); });
+    if (e.target.closest('#reopen')) { update(function (t) { t.status = 'aberto'; t.msgs.push({ de: 'cliente', texto: 'Solicitação reaberta pelo cliente.', data: todayBR() }); }); window.dominusToast('Solicitação reaberta'); return; }
+    if (e.target.closest('#copyId')) { try { navigator.clipboard.writeText(sel); } catch (x) {} window.dominusToast('Protocolo ' + sel + ' copiado'); }
+  });
+  document.getElementById('detail').addEventListener('keydown', function (e) { if (e.target.id === 'rp' && e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); send(); } });
   render();
 
-})();</script>
+})();
+</script>
 </body>
 </html>
