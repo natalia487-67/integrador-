@@ -115,11 +115,11 @@ nav a:hover, nav a.active { border-bottom: 3px solid var(--gold-light); }
 
 /* ===== Vehicles ===== */
 .vehicles-title { text-align: center; color: var(--gold); font-size: 36px; font-weight: 800; margin: 40px 0; }
-.vehicles-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 28px; max-width: 1400px; margin: 0 auto 50px auto; padding: 0 20px; }
+.vehicles-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; max-width: 1360px; margin: 0 auto 50px auto; padding: 0 20px; }
 .vehicle-card { background-color: #e5dfd3; border-radius: 20px; padding: 24px; text-align: center; box-shadow: 0 4px 14px rgba(0,0,0,0.06); transition: transform 0.25s, box-shadow 0.25s; }
 .vehicle-card:hover { transform: translateY(-6px); box-shadow: 0 10px 22px rgba(0,0,0,0.12); }
-.vehicle-card img { width: 100%; height: 260px; object-fit: cover; border-radius: 14px; margin-bottom: 18px; }
-.vehicle-name { font-size: 22px; font-weight: 700; margin-bottom: 15px; min-height: 45px; }
+.vehicle-card img { width: 100%; height: 300px; object-fit: cover; border-radius: 14px; margin-bottom: 18px; }
+.vehicle-name { font-size: 24px; font-weight: 700; margin-bottom: 15px; min-height: 45px; }
 .price-tag { background-color: var(--teal-dark); color: #fff; padding: 10px; border-radius: 10px; font-weight: 700; margin-bottom: 12px; }
 .btn-details { color: #1a1a1a; text-decoration: none; font-size: 13px; font-weight: 600; }
 
@@ -292,12 +292,15 @@ nav a:hover, nav a.active { border-bottom: 3px solid var(--gold-light); }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   nav { display: none; }
 }
+@media (max-width: 560px) {
+  .vehicles-grid { grid-template-columns: 1fr; }
+}
 
 
 /* ===== Veículos: resumo ao passar o mouse + popup de reserva ===== */
 .vehicle-card { position: relative; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .vehicle-card:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
-.vehicle-media { position: relative; height: 260px; border-radius: 14px; overflow: hidden; margin-bottom: 18px; background-color: #d8d0bd; }
+.vehicle-media { position: relative; height: 300px; border-radius: 14px; overflow: hidden; margin-bottom: 18px; background-color: #d8d0bd; }
 .vehicle-media img { display: block; margin-bottom: 0; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
 .vehicle-media .placeholder-icon { margin-bottom: 0; height: 100%; }
 .vehicle-card:hover .vehicle-media img, .vehicle-card:focus-visible .vehicle-media img { transform: scale(1.08); }
