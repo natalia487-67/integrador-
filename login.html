@@ -327,11 +327,6 @@ html.js .reveal.in { opacity:1; transform:none; }
 @media (max-width:1100px) { .login-form-area { padding:36px 28px; } }
 @media (max-width:900px) { .login-screen { flex-direction:column; } .login-form-area { width:100%; padding:30px 16px 40px; } .brand-panel { display:none; } .auth-card { padding:32px 22px 26px; } .auth-title { font-size:26px; } }
 
-.test-accts { margin-top:18px; border:1.5px dashed var(--line); border-radius:18px; padding:12px 16px; background:var(--bg-input); }
-.test-accts summary { cursor:pointer; font-weight:800; font-size:13.5px; color:var(--teal-dark); }
-.test-accts p { font-size:12.5px; color:var(--muted); margin:8px 0 4px; }
-.ta-row { display:flex; justify-content:space-between; gap:10px; align-items:center; padding:10px 0; border-top:1px solid var(--line); font-size:12.5px; }
-.ta-row span { display:block; color:var(--muted); word-break:break-all; }
 .terms-note { font-size:12px; color:var(--muted); text-align:center; margin-top:12px; }
 .terms-note a { color:var(--teal-dark); font-weight:700; }
 </style>
@@ -356,7 +351,7 @@ html.js .reveal.in { opacity:1; transform:none; }
         </div>
         <div class="dropdown-menu-floating">
           <div class="dd-head"><strong class="dd-name">Minha conta</strong><span class="dd-mail"></span></div>
-          <a href="index-gerente.html" class="dropdown-item dd-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg><span>Meu painel</span></a>
+          <a href="index-gerente.html" class="dropdown-item staff-only dd-panel"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg><span>Meu painel</span></a>
           <a href="seguranca.html" class="dropdown-item">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
             <span>Dados e segurança</span>
@@ -420,15 +415,6 @@ html.js .reveal.in { opacity:1; transform:none; }
 
           <button type="submit" class="btn-login-submit">Entrar <svg class="btn-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
         </form>
-
-        <details class="test-accts">
-          <summary>Contas de teste</summary>
-          <p>Use estas contas para conhecer cada perfil do sistema.</p>
-          <div class="ta-row"><div><b>Administrador</b><span>admin@dominusauto.com.br</span><span>Senha: Admin@123</span></div><button type="button" class="btn btn-outline btn-sm" data-u="admin@dominusauto.com.br" data-p="Admin@123">Usar</button></div>
-          <div class="ta-row"><div><b>Gerente</b><span>gerente@dominusauto.com.br</span><span>Senha: Gerente@123</span></div><button type="button" class="btn btn-outline btn-sm" data-u="gerente@dominusauto.com.br" data-p="Gerente@123">Usar</button></div>
-          <div class="ta-row"><div><b>Funcionário</b><span>funcionario@dominusauto.com.br</span><span>Senha: Func@123</span></div><button type="button" class="btn btn-outline btn-sm" data-u="funcionario@dominusauto.com.br" data-p="Func@123">Usar</button></div>
-          <div class="ta-row"><div><b>Cliente</b><span>cliente@dominusauto.com.br</span><span>Senha: Cliente@123</span></div><button type="button" class="btn btn-outline btn-sm" data-u="cliente@dominusauto.com.br" data-p="Cliente@123">Usar</button></div>
-        </details>
 
         <div class="alt-line">Não tem uma conta? <a href="cadastro.html">Cadastre-se</a></div>
         </div>
@@ -763,9 +749,6 @@ function me() { var u = window.dominusUser() || {}; return { nome: u.name || 'Jo
   function need(el, msg) { var ok = el.value.trim() !== ''; setErr(el, ok ? '' : msg); return ok; }
   [[u, 'Informe seu e-mail ou usuário.'], [p, 'Informe sua senha.']].forEach(function (x) {
     x[0].addEventListener('input', function () { if (x[0].closest('.field').classList.contains('invalid')) need(x[0], x[1]); });
-  });
-  document.querySelectorAll('.ta-row button').forEach(function (b) {
-    b.addEventListener('click', function () { u.value = b.getAttribute('data-u'); p.value = b.getAttribute('data-p'); setErr(u, ''); setErr(p, ''); document.querySelector('#logForm button[type=submit]').focus(); });
   });
   document.getElementById('logForm').addEventListener('submit', function (e) {
     e.preventDefault();
